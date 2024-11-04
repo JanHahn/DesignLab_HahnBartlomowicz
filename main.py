@@ -3,6 +3,8 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel, QPushButton, QSta
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
 
+#KOCHAM MOJ
+
 
 class MainWindow(QMainWindow):
     def __init__(self):

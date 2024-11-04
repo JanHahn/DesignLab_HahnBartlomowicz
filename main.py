@@ -4,6 +4,7 @@ from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
 
 
+#to ja janek
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()

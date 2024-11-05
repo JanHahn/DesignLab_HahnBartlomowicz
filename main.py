@@ -236,6 +236,7 @@ class MainWindow(QMainWindow):
 
         grid_layout = QGridLayout()
 
+
         grid_layout.addWidget(self.button_1, 0, 0)
         grid_layout.addWidget(self.button_2, 0, 1)
         grid_layout.addWidget(self.button_3, 0, 2)
@@ -246,10 +247,6 @@ class MainWindow(QMainWindow):
         grid_layout.addWidget(self.button_8, 2, 1)
         grid_layout.addWidget(self.button_9, 2, 2)
         grid_layout.addWidget(self.button_0, 3, 1)
-
-
-
-
 
 
 

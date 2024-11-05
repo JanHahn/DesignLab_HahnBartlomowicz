@@ -1,17 +1,19 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel, QPushButton, QStackedWidget, QWidget, QRadioButton
+from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QPushButton, QStackedWidget, QWidget, QRadioButton, QHBoxLayout,
+                             QVBoxLayout, QSizePolicy, QSpacerItem)
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
 
 
-#to ja janek
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
         # Parameters for the window
+        self.windowWidth = 800
+        self.windowHeight = 400
         self.setWindowTitle("The Skrytka ")
-        self.setGeometry(0, 0, 800, 400)
+        self.setGeometry(0, 0, self.windowWidth, self.windowHeight)
 
         # Creating stacked widget
         self.stacked_widget = QStackedWidget()
@@ -23,44 +25,65 @@ class MainWindow(QMainWindow):
         self.odbierz_paczke = self.create_odbierz_paczke()
         self.chce_odebrac = self.create_chce_odebrac()
         self.chce_schowac = self.create_chce_schowac()
+
         # Adding different views to stacked widget
         self.stacked_widget.addWidget(self.main_menu)
         self.stacked_widget.addWidget(self.schowaj_paczke)
         self.stacked_widget.addWidget(self.odbierz_paczke)
         self.stacked_widget.addWidget(self.chce_odebrac)
         self.stacked_widget.addWidget(self.chce_schowac)
+
+
     def create_main_menu(self):
         widget = QWidget(self)
         widget.setStyleSheet("background-color: #d1e8d1;")
 
         # Greeting label
-        label = QLabel("DZIEŃ DOBRY!", widget)
+        label = QLabel("DZIEŃ DOBRY!")
         label.setFont(QFont("Helvetica", 30))
-        label.setGeometry(0, 0, 800, 80)
         label.setStyleSheet("color: #0a093b; font-weight: bold;")
-        label.setAlignment(Qt.AlignCenter | Qt.AlignHCenter)
+        label.setAlignment(Qt.AlignCenter)
+
+        #creating vertical layout
+        vertical_layout = QVBoxLayout(widget)
+        vertical_layout.addWidget(label, stretch=5)
 
         # Buttons
-        self.button1 = QPushButton("CHCĘ SCHOWAĆ", widget)
-        self.button2 = QPushButton("CHCĘ ODEBRAĆ", widget)
-
-        # Customizing buttons
-        self.button1.setGeometry(50, 100, 300, 200)
+        self.button1 = QPushButton("CHCĘ SCHOWAĆ")
+        self.button1.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.button1.setMinimumHeight(40)
         self.button1.setStyleSheet("color: #0f571e;"
                                    "font-size: 30px;"
                                    "font-weight: bold;"
                                    "background-color: white;")
 
-        self.button2.setGeometry(450, 100, 300, 200)
+        self.button2 = QPushButton("CHCĘ ODEBRAĆ")
+        self.button2.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.button2.setMinimumHeight(40)
         self.button2.setStyleSheet("color: #870925;"
                                    "font-size: 30px;"
                                    "font-weight: bold;"
                                    "background-color: white;")
 
+        #creating horizontal layout (nested layout for button)
+        horizontal_layout = QHBoxLayout()
+        horizontal_layout.addStretch(2)
+        horizontal_layout.addWidget(self.button1, 8)
+        horizontal_layout.addStretch(2)
+        horizontal_layout.addWidget(self.button2, 8)
+        horizontal_layout.addStretch(2)
+
+        #adding horizontal layout with buttons to main vertical layout
+        vertical_layout.addLayout(horizontal_layout, stretch=8)
+        vertical_layout.addStretch(1)
+
+        widget.setLayout(vertical_layout)
+
         self.button1.clicked.connect(self.show_chce_schowac)
         self.button2.clicked.connect(self.show_chce_odebrac)
 
         return widget
+
 
     def create_chce_odebrac(self):
         widget = QWidget(self)
@@ -102,6 +125,7 @@ class MainWindow(QMainWindow):
         self.button2.clicked.connect(self.show_odbierz_paczke)
 
         return widget
+
 
     def create_chce_schowac(self):
         widget = QWidget(self)
@@ -169,6 +193,7 @@ class MainWindow(QMainWindow):
 
         return widget
 
+
     def create_odbierz_paczke(self):
         widget = QWidget(self)
         widget.setStyleSheet("background-color: #d1e8d1;")
@@ -202,6 +227,16 @@ class MainWindow(QMainWindow):
 
     def show_chce_schowac(self):
         self.stacked_widget.setCurrentWidget(self.chce_schowac)
+
+    def resizeEvent(self, event):
+        super().resizeEvent(event)
+
+        # Optional: Customize the button size based on the window size
+        button_size = self.width() // 3  # Button size based on one-third of window width
+        button_size = self.width()
+
+        # for button in self.buttons:
+        #     button.setFixedSize(button_size, button_size)  # Set buttons to be squares
 
 def main():
     app = QApplication(sys.argv)

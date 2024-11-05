@@ -1,6 +1,7 @@
 import sys
-from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QPushButton, QStackedWidget, QWidget, QRadioButton, QHBoxLayout,
-                             QVBoxLayout, QSizePolicy, QSpacerItem)
+from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QPushButton, QStackedWidget, QWidget, QRadioButton,
+                             QHBoxLayout,
+                             QVBoxLayout, QSizePolicy, QSpacerItem, QLineEdit, QGridLayout)
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
 
@@ -193,24 +194,87 @@ class MainWindow(QMainWindow):
 
         return widget
 
-
     def create_odbierz_paczke(self):
+        # Tworzymy nowy widget jako kontener
         widget = QWidget(self)
+        # Ustawiamy tło dla widgetu
         widget.setStyleSheet("background-color: #d1e8d1;")
-        label = QLabel(f"WPISZ KOD ODBIORU DLA SKRYTKI", widget)
-        label.setGeometry(0, 0, 800, 70)
+
+        # Tworzymy etykietę z tekstem informacyjnym
+        label = QLabel("WPISZ KOD ODBIORU DLA SKRYTKI", widget)
+        # Ustawiamy czcionkę etykiety
         label.setFont(QFont("Helvetica", 22))
+        # Ustawiamy styl etykiety
         label.setStyleSheet("color: #0a093b; font-weight: bold;")
+        # Ustawiamy wyrównanie tekstu w etykiecie
         label.setAlignment(Qt.AlignCenter | Qt.AlignHCenter)
 
+        # Tworzymy przycisk "POWRÓT"
         self.return_button = QPushButton("POWRÓT", widget)
-        self.return_button.setGeometry(650, 340, 140, 50)
+        # Ustawiamy styl przycisku
         self.return_button.setStyleSheet("font-size: 25px;"
-                                          "color: #870925;"
-                                          "font-weight: bold;"
-                                          "background-color: white;")
-
+                                         "color: #870925;"
+                                         "font-weight: bold;"
+                                         "background-color: white;")
+        # Łączymy kliknięcie przycisku z odpowiednią metodą
         self.return_button.clicked.connect(self.show_chce_odebrac)
+
+        # Tworzymy pole tekstowe do wprowadzania kodu
+        self.line_edit = QLineEdit(widget)
+        self.line_edit.setMinimumHeight(50)
+
+        self.button_1 = QPushButton("1", widget)
+        self.button_2 = QPushButton("2", widget)
+        self.button_3 = QPushButton("3", widget)
+        self.button_4 = QPushButton("4", widget)
+        self.button_5 = QPushButton("5", widget)
+        self.button_6 = QPushButton("6", widget)
+        self.button_7 = QPushButton("7", widget)
+        self.button_8 = QPushButton("8", widget)
+        self.button_9 = QPushButton("9", widget)
+        self.button_0 = QPushButton("0", widget)
+
+        grid_layout = QGridLayout()
+
+        grid_layout.addWidget(self.button_1, 0, 0)
+        grid_layout.addWidget(self.button_2, 0, 1)
+        grid_layout.addWidget(self.button_3, 0, 2)
+        grid_layout.addWidget(self.button_4, 1, 0)
+        grid_layout.addWidget(self.button_5, 1, 1)
+        grid_layout.addWidget(self.button_6, 1, 2)
+        grid_layout.addWidget(self.button_7, 2, 0)
+        grid_layout.addWidget(self.button_8, 2, 1)
+        grid_layout.addWidget(self.button_9, 2, 2)
+        grid_layout.addWidget(self.button_0, 3, 1)
+
+
+
+
+
+
+
+        #poziomy layout
+        horizontal_layout = QHBoxLayout()
+        horizontal_layout.addStretch(5)
+        horizontal_layout.addWidget(self.line_edit, 2)
+        horizontal_layout.addStretch(5)
+
+
+        #pionowy layout
+        vertical_layout = QVBoxLayout()
+        vertical_layout.addWidget(label)
+        vertical_layout.addLayout(horizontal_layout)
+        vertical_layout.addStretch(3)
+        vertical_layout.addLayout(grid_layout)
+
+        #Przycisk powrot
+        bottom_layout = QHBoxLayout()
+        bottom_layout.addStretch(1)
+        bottom_layout.addWidget(self.return_button)
+
+        vertical_layout.addLayout(bottom_layout)
+
+        widget.setLayout(vertical_layout)
 
         return widget
 

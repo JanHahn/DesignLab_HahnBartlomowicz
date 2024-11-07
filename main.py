@@ -37,12 +37,13 @@ class MainWindow(QMainWindow):
 
     def create_main_menu(self):
         widget = QWidget(self)
-        widget.setStyleSheet("background-color: #d1e8d1;")
+        widget.setStyleSheet("background-color: #2d2d2d;")
 
         # Greeting label
         label = QLabel("DZIEŃ DOBRY!")
-        label.setFont(QFont("Helvetica", 30))
-        label.setStyleSheet("color: #0a093b; font-weight: bold;")
+        label.setFont(QFont("Helvetica", 35))
+        label.setStyleSheet("color: white; "
+                            "font-weight: bold;")
         label.setAlignment(Qt.AlignCenter)
 
         #creating vertical layout
@@ -53,18 +54,18 @@ class MainWindow(QMainWindow):
         self.button1 = QPushButton("CHCĘ SCHOWAĆ")
         self.button1.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.button1.setMinimumHeight(40)
-        self.button1.setStyleSheet("color: #0f571e;"
-                                   "font-size: 30px;"
+        self.button1.setStyleSheet("color: #f4f3f0;"
+                                   "font-size: 33px;"
                                    "font-weight: bold;"
-                                   "background-color: white;")
+                                   "background-color: #007f5f;")
 
         self.button2 = QPushButton("CHCĘ ODEBRAĆ")
         self.button2.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.button2.setMinimumHeight(40)
-        self.button2.setStyleSheet("color: #870925;"
-                                   "font-size: 30px;"
+        self.button2.setStyleSheet("color: #f4f3f0;"
+                                   "font-size: 33px;"
                                    "font-weight: bold;"
-                                   "background-color: white;")
+                                   "background-color: #8b0000;")
 
         #creating horizontal layout (nested layout for button)
         horizontal_layout = QHBoxLayout()
@@ -88,13 +89,13 @@ class MainWindow(QMainWindow):
 
     def create_chce_odebrac(self):
         widget = QWidget(self)
-        widget.setStyleSheet("background-color: #d1e8d1;")
+        widget.setStyleSheet("background-color: #2d2d2d;")
 
         # Która szafke wybierasz
         label = QLabel("WYBIERZ SKRYTKĘ", widget)
-        label.setFont(QFont("Helvetica", 30))
+        label.setFont(QFont("Helvetica", 35))
         label.setGeometry(0, 0, 800, 80)
-        label.setStyleSheet("color: #0a093b; font-weight: bold;")
+        label.setStyleSheet("color: white; font-weight: bold;")
         label.setAlignment(Qt.AlignCenter and Qt.AlignHCenter)
 
         self.button1 = QPushButton("SKRYTKA 1", widget)
@@ -102,23 +103,23 @@ class MainWindow(QMainWindow):
 
         # Customizing buttons
         self.button1.setGeometry(50, 100, 320, 220)
-        self.button1.setStyleSheet("color: black;"
-                                   "font-size: 30px;"
+        self.button1.setStyleSheet("color: #f4f3f0;"
+                                   "font-size: 35px;"
                                    "font-weight: bold;"
-                                   "background-color: white;")
+                                   "background-color: #8b0000;")
 
         self.button2.setGeometry(450, 100, 320, 220)
-        self.button2.setStyleSheet("color: black;"
-                                   "font-size: 30px;"
+        self.button2.setStyleSheet("color: #f4f3f0;"
+                                   "font-size: 35px;"
                                    "font-weight: bold;"
-                                   "background-color: white;")
+                                   "background-color: #8b0000;")
 
         self.return_button = QPushButton("POWRÓT", widget)
         self.return_button.setGeometry(650, 340, 140, 50)
         self.return_button.setStyleSheet("font-size: 25px;"
-                                         "color: #870925;"
+                                         "color: #f4f3f0;"
                                          "font-weight: bold;"
-                                         "background-color: white;")
+                                         "background-color: #007f5f;")
 
         self.return_button.clicked.connect(self.show_main_menu)
 
@@ -130,13 +131,13 @@ class MainWindow(QMainWindow):
 
     def create_chce_schowac(self):
         widget = QWidget(self)
-        widget.setStyleSheet("background-color: #d1e8d1;")
+        widget.setStyleSheet("background-color: #2d2d2d;")
 
         # Która szafke wybierasz
         label = QLabel("WYBIERZ SKRYTKĘ", widget)
-        label.setFont(QFont("Helvetica", 30))
+        label.setFont(QFont("Helvetica", 35))
         label.setGeometry(0, 0, 800, 80)
-        label.setStyleSheet("color: #0a093b; font-weight: bold;")
+        label.setStyleSheet("color: white; font-weight: bold;")
         label.setAlignment(Qt.AlignCenter and Qt.AlignHCenter)
 
         self.button1 = QPushButton("SKRYTKA 1", widget)
@@ -144,23 +145,23 @@ class MainWindow(QMainWindow):
 
         # Customizing buttons
         self.button1.setGeometry(50, 100, 320, 220)
-        self.button1.setStyleSheet("color: black;"
-                                   "font-size: 30px;"
+        self.button1.setStyleSheet("color: #f4f3f0;"
+                                   "font-size: 35px;"
                                    "font-weight: bold;"
-                                   "background-color: white;")
+                                   "background-color: #007f5f;")
 
         self.button2.setGeometry(450, 100, 320, 220)
-        self.button2.setStyleSheet("color: black;"
-                                   "font-size: 30px;"
+        self.button2.setStyleSheet("color: #f4f3f0;"
+                                   "font-size: 35px;"
                                    "font-weight: bold;"
-                                   "background-color: white;")
+                                   "background-color: #007f5f;")
 
         self.return_button = QPushButton("POWRÓT", widget)
         self.return_button.setGeometry(650, 340, 140, 50)
         self.return_button.setStyleSheet("font-size: 25px;"
-                                         "color: #870925;"
+                                         "color: #f4f3f0;"
                                          "font-weight: bold;"
-                                         "background-color: white;")
+                                         "background-color: #8b0000;")
 
         self.return_button.clicked.connect(self.show_main_menu)
         self.button1.clicked.connect(self.show_schowaj_paczke)
@@ -168,9 +169,11 @@ class MainWindow(QMainWindow):
         return widget
 
 
+
+
     def create_schowaj_paczke(self):
         widget = QWidget(self)
-        widget.setStyleSheet("background-color: #d1e8d1;")
+        widget.setStyleSheet("background-color: #2d2d2d;")
         label = QLabel("""<ol style="margin: 0; padding: 0; text-align: left;">
                 <li>UMIEŚĆ PRZEDMIOT W SKRYTCE</li>
                 <li>ZAMKNIJ SKRYTKĘ</li>
@@ -178,50 +181,64 @@ class MainWindow(QMainWindow):
                 <li>PODAJ EMAIL NA KTÓY OTRZYMASZ KOD OTWARCA</li>
             </ol>""", widget)
         label.setGeometry(0, 0, 800, 400)
-        label.setFont(QFont("Helvetica", 17))
-        label.setStyleSheet("color: #0a093b; font-weight: bold;")
+        label.setFont(QFont("Helvetica", 20))
+        label.setStyleSheet("color: white; font-weight: bold;")
         label.setAlignment(Qt.AlignLeft)
         label.setWordWrap(True)
+
+        # Tworzymy pole tekstowe do wprowadzania kodu
+        self.line_edit = QLineEdit(widget)
+        self.line_edit.setMinimumHeight(50)
+        self.line_edit.setStyleSheet("background-color: #8b0000;"
+                                     "font-size: 25px;"
+                                     "font-weight: bold;"
+                                     "color: white;")
+        #tymczasowo:
+        self.line_edit.setGeometry(150, 150, 500, 30)
+
+        #Przyciski klawiatury
+
 
         self.return_button = QPushButton("POWRÓT", widget)
         self.return_button.setGeometry(690, 365, 100, 30)
         self.return_button.setStyleSheet("font-size: 18px;"
-                                         "color: #870925;"
+                                         "color: #f4f3f0;"
                                          "font-weight: bold;"
-                                         "background-color: white;")
+                                         "background-color: #8b0000")
 
         self.return_button.clicked.connect(self.show_chce_schowac)
 
         return widget
 
     def create_odbierz_paczke(self):
-        # Tworzymy nowy widget jako kontener
-        widget = QWidget(self)
-        # Ustawiamy tło dla widgetu
-        widget.setStyleSheet("background-color: #d1e8d1;")
 
-        # Tworzymy etykietę z tekstem informacyjnym
+        widget = QWidget(self)
+        widget.setStyleSheet("background-color: #2d2d2d;")
+
+
         label = QLabel("WPISZ KOD ODBIORU DLA SKRYTKI", widget)
-        # Ustawiamy czcionkę etykiety
-        label.setFont(QFont("Helvetica", 22))
-        # Ustawiamy styl etykiety
-        label.setStyleSheet("color: #0a093b; font-weight: bold;")
-        # Ustawiamy wyrównanie tekstu w etykiecie
+
+        label.setFont(QFont("Helvetica", 30))
+        label.setStyleSheet("color: white;"
+                            "font-weight: bold;")
         label.setAlignment(Qt.AlignCenter | Qt.AlignHCenter)
 
         # Tworzymy przycisk "POWRÓT"
         self.return_button = QPushButton("POWRÓT", widget)
-        # Ustawiamy styl przycisku
         self.return_button.setStyleSheet("font-size: 25px;"
-                                         "color: #870925;"
+                                         "color: #f4f3f0;"
                                          "font-weight: bold;"
-                                         "background-color: white;")
-        # Łączymy kliknięcie przycisku z odpowiednią metodą
+                                         "background-color: #007f5f")
         self.return_button.clicked.connect(self.show_chce_odebrac)
 
         # Tworzymy pole tekstowe do wprowadzania kodu
         self.line_edit = QLineEdit(widget)
         self.line_edit.setMinimumHeight(50)
+        self.line_edit.setStyleSheet("background-color: #007f5f;"
+                                     "font-size: 33px;"
+                                     "font-weight: bold;"
+                                     "color: #f4f3f0;")
+
 
         self.button_1 = QPushButton("1", widget)
         self.button_2 = QPushButton("2", widget)
@@ -233,9 +250,42 @@ class MainWindow(QMainWindow):
         self.button_8 = QPushButton("8", widget)
         self.button_9 = QPushButton("9", widget)
         self.button_0 = QPushButton("0", widget)
+        self.button_enter = QPushButton("OK", widget)
+        self.button_back = QPushButton("⌫", widget)
 
+        buttons = [self.button_1, self.button_2, self.button_3, self.button_4, self.button_5, self.button_6, self.button_7,
+        self.button_8, self.button_9, self.button_0, self.button_enter, self.button_back]
+
+        for button in buttons:
+            button.setStyleSheet("background-color: #8b0000;"
+                                 "font-size: 22px;"
+                                 "color: #f4f3f0;"
+                                 "font-weight: bold;")
+
+
+        def add_tekst(tekst):
+            self.line_edit.insert(tekst)
+        def backspace():
+            self.line_edit.backspace()
+
+        self.button_1.clicked.connect(lambda: add_tekst("1"))
+        self.button_2.clicked.connect(lambda: add_tekst("2"))
+        self.button_3.clicked.connect(lambda: add_tekst("3"))
+        self.button_4.clicked.connect(lambda: add_tekst("4"))
+        self.button_5.clicked.connect(lambda: add_tekst("5"))
+        self.button_6.clicked.connect(lambda: add_tekst("6"))
+        self.button_7.clicked.connect(lambda: add_tekst("7"))
+        self.button_8.clicked.connect(lambda: add_tekst("8"))
+        self.button_9.clicked.connect(lambda: add_tekst("9"))
+        self.button_0.clicked.connect(lambda: add_tekst("0"))
+        self.button_back.clicked.connect(lambda: backspace())
+
+
+
+
+
+        #Creating Grid Layout for buttons
         grid_layout = QGridLayout()
-
 
         grid_layout.addWidget(self.button_1, 0, 0)
         grid_layout.addWidget(self.button_2, 0, 1)
@@ -246,7 +296,17 @@ class MainWindow(QMainWindow):
         grid_layout.addWidget(self.button_7, 2, 0)
         grid_layout.addWidget(self.button_8, 2, 1)
         grid_layout.addWidget(self.button_9, 2, 2)
+        grid_layout.addWidget(self.button_back,3, 0)
         grid_layout.addWidget(self.button_0, 3, 1)
+        grid_layout.addWidget(self.button_enter, 3, 2)
+
+
+
+        klawaitura_layout = QHBoxLayout()
+
+        klawaitura_layout.addStretch(2)
+        klawaitura_layout.addLayout(grid_layout, 4)
+        klawaitura_layout.addStretch(2)
 
 
 
@@ -260,9 +320,10 @@ class MainWindow(QMainWindow):
         #pionowy layout
         vertical_layout = QVBoxLayout()
         vertical_layout.addWidget(label)
+        vertical_layout.addStretch(3)
         vertical_layout.addLayout(horizontal_layout)
         vertical_layout.addStretch(3)
-        vertical_layout.addLayout(grid_layout)
+        vertical_layout.addLayout(klawaitura_layout)
 
         #Przycisk powrot
         bottom_layout = QHBoxLayout()

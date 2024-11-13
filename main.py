@@ -1,4 +1,6 @@
 import sys
+from tkinter.ttk import Label
+
 from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QPushButton, QStackedWidget, QWidget, QRadioButton,
                              QHBoxLayout,
                              QVBoxLayout, QSizePolicy, QSpacerItem, QLineEdit, QGridLayout)
@@ -16,23 +18,28 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("The Skrytka ")
         self.setGeometry(0, 0, self.windowWidth, self.windowHeight)
 
+
         # Creating stacked widget
         self.stacked_widget = QStackedWidget()
         self.setCentralWidget(self.stacked_widget)
 
-        # Creating 3 views
+
+        # Creating 5 views
         self.main_menu = self.create_main_menu()
-        self.schowaj_paczke = self.create_schowaj_paczke()
-        self.odbierz_paczke = self.create_odbierz_paczke()
         self.chce_odebrac = self.create_chce_odebrac()
         self.chce_schowac = self.create_chce_schowac()
+        self.schowaj_paczke = self.create_schowaj_paczke()
+        self.odbierz_paczke = self.create_odbierz_paczke()
+
 
         # Adding different views to stacked widget
         self.stacked_widget.addWidget(self.main_menu)
-        self.stacked_widget.addWidget(self.schowaj_paczke)
-        self.stacked_widget.addWidget(self.odbierz_paczke)
         self.stacked_widget.addWidget(self.chce_odebrac)
         self.stacked_widget.addWidget(self.chce_schowac)
+        self.stacked_widget.addWidget(self.schowaj_paczke)
+        self.stacked_widget.addWidget(self.odbierz_paczke)
+
+
 
 
     def create_main_menu(self):
@@ -57,7 +64,8 @@ class MainWindow(QMainWindow):
         self.button1.setStyleSheet("color: #f4f3f0;"
                                    "font-size: 33px;"
                                    "font-weight: bold;"
-                                   "background-color: #007f5f;")
+                                   "background-color: #162f42;")
+
 
         self.button2 = QPushButton("CHCĘ ODEBRAĆ")
         self.button2.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -65,7 +73,8 @@ class MainWindow(QMainWindow):
         self.button2.setStyleSheet("color: #f4f3f0;"
                                    "font-size: 33px;"
                                    "font-weight: bold;"
-                                   "background-color: #8b0000;")
+                                   "background-color: #6A1B1B;")
+
 
         #creating horizontal layout (nested layout for button)
         horizontal_layout = QHBoxLayout()
@@ -75,9 +84,11 @@ class MainWindow(QMainWindow):
         horizontal_layout.addWidget(self.button2, 8)
         horizontal_layout.addStretch(2)
 
+
         #adding horizontal layout with buttons to main vertical layout
         vertical_layout.addLayout(horizontal_layout, stretch=8)
         vertical_layout.addStretch(1)
+
 
         widget.setLayout(vertical_layout)
 
@@ -106,20 +117,20 @@ class MainWindow(QMainWindow):
         self.button1.setStyleSheet("color: #f4f3f0;"
                                    "font-size: 35px;"
                                    "font-weight: bold;"
-                                   "background-color: #8b0000;")
+                                   "background-color: #6A1B1B;")
 
         self.button2.setGeometry(450, 100, 320, 220)
         self.button2.setStyleSheet("color: #f4f3f0;"
                                    "font-size: 35px;"
                                    "font-weight: bold;"
-                                   "background-color: #8b0000;")
+                                   "background-color: #6A1B1B;")
 
         self.return_button = QPushButton("POWRÓT", widget)
         self.return_button.setGeometry(650, 340, 140, 50)
         self.return_button.setStyleSheet("font-size: 25px;"
                                          "color: #f4f3f0;"
                                          "font-weight: bold;"
-                                         "background-color: #007f5f;")
+                                         "background-color: #162f42;")
 
         self.return_button.clicked.connect(self.show_main_menu)
 
@@ -127,6 +138,8 @@ class MainWindow(QMainWindow):
         self.button2.clicked.connect(self.show_odbierz_paczke)
 
         return widget
+
+
 
 
     def create_chce_schowac(self):
@@ -148,24 +161,27 @@ class MainWindow(QMainWindow):
         self.button1.setStyleSheet("color: #f4f3f0;"
                                    "font-size: 35px;"
                                    "font-weight: bold;"
-                                   "background-color: #007f5f;")
+                                   "background-color: #162f42")
 
         self.button2.setGeometry(450, 100, 320, 220)
         self.button2.setStyleSheet("color: #f4f3f0;"
                                    "font-size: 35px;"
                                    "font-weight: bold;"
-                                   "background-color: #007f5f;")
+                                   "background-color: #162f42")
 
         self.return_button = QPushButton("POWRÓT", widget)
         self.return_button.setGeometry(650, 340, 140, 50)
         self.return_button.setStyleSheet("font-size: 25px;"
                                          "color: #f4f3f0;"
                                          "font-weight: bold;"
-                                         "background-color: #8b0000;")
+                                         "background-color: #6A1B1B;")
 
         self.return_button.clicked.connect(self.show_main_menu)
         self.button1.clicked.connect(self.show_schowaj_paczke)
         self.button2.clicked.connect(self.show_schowaj_paczke)
+
+
+
         return widget
 
 
@@ -173,42 +189,147 @@ class MainWindow(QMainWindow):
 
     def create_schowaj_paczke(self):
         widget = QWidget(self)
+
+        #Definiowanie koloru strony
         widget.setStyleSheet("background-color: #2d2d2d;")
+
+        #Definiowanie instrukcji oraz jej własciwości
         label = QLabel("""<ol style="margin: 0; padding: 0; text-align: left;">
                 <li>UMIEŚĆ PRZEDMIOT W SKRYTCE</li>
                 <li>ZAMKNIJ SKRYTKĘ</li>
-                <li>POCZEKAJ AŻ SKRYTKA WYKRYJE ZAWARTOŚĆ</li>
-                <li>PODAJ EMAIL NA KTÓY OTRZYMASZ KOD OTWARCA</li>
+                <li>PODAJ EMAIL/TEL NA KTÓY OTRZYMASZ KOD OTWARCA</li>
             </ol>""", widget)
-        label.setGeometry(0, 0, 800, 400)
-        label.setFont(QFont("Helvetica", 20))
+        label.setFont(QFont("Helvetica", 18))
         label.setStyleSheet("color: white; font-weight: bold;")
         label.setAlignment(Qt.AlignLeft)
         label.setWordWrap(True)
 
-        # Tworzymy pole tekstowe do wprowadzania kodu
-        self.line_edit = QLineEdit(widget)
-        self.line_edit.setMinimumHeight(50)
-        self.line_edit.setStyleSheet("background-color: #8b0000;"
+
+        # Tworzenie pole tekstowe do wprowadzania kodu
+        line_edit = QLineEdit(widget)
+        line_edit.setMinimumHeight(50)
+        line_edit.setStyleSheet("background-color: #6A1B1B;"
                                      "font-size: 25px;"
                                      "font-weight: bold;"
                                      "color: white;")
-        #tymczasowo:
-        self.line_edit.setGeometry(150, 150, 500, 30)
 
-        #Przyciski klawiatury
+        #Przycisk do mazania
+        backspace_button = QPushButton("⌫", widget)
+        backspace_button.setStyleSheet("font-size: 25px;"
+                                "color: #f4f3f0;"
+                                "font-weight: bold;"
+                                "background-color: #162f42")
 
 
-        self.return_button = QPushButton("POWRÓT", widget)
-        self.return_button.setGeometry(690, 365, 100, 30)
-        self.return_button.setStyleSheet("font-size: 18px;"
+        #Tworzenie Klawiatury
+        keyboard_rows = {
+            "numeric": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],  # 10
+            "first_row": ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],  # 10
+            "second_row": ["a", "s", "d", "f", "g", "h", "j", "k", "l"],  # 9
+            "third_row": ["z", "x", "c", "v", "b", "n", "m", "@", "."]  # 9
+        }
+
+        buttons = {
+            "numeric": [],
+            "first_row": [],
+            "second_row": [],
+            "third_row": []
+        }
+
+        layouts = {
+            "numeric": QHBoxLayout(),
+            "first_row": QHBoxLayout(),
+            "second_row": QHBoxLayout(),
+            "third_row": QHBoxLayout()
+        }
+
+        # Dodanie odstępów na początku rzędów klawiatury
+        for layout in layouts.values():
+            layout.addStretch(2)
+
+        def add_tekst(tekst):
+            line_edit.insert(tekst)
+
+        # Tworzenie przycisków i dodawanie ich do odpowiednich layoutów rzędów
+        for row_name, keys in keyboard_rows.items():
+            for key in keys:
+
+                button = QPushButton(key, widget)
+                buttons[row_name].append(button)
+                layouts[row_name].addWidget(button)
+                button.setStyleSheet("background-color: #162f42;"
+                                         "font-size: 22px;"
+                                         "color: #f4f3f0;"
+                                         "font-weight: bold;")
+                button.clicked.connect(lambda checked, tekst=key: add_tekst(tekst))
+
+
+        #Dodawanie odstepow na koncu layoutow klawiatury
+        for layout in layouts.values():
+            layout.addStretch(2)
+
+        #Przycisk return
+        return_button = QPushButton("POWRÓT", widget)
+        return_button.setStyleSheet("font-size: 18px;"
                                          "color: #f4f3f0;"
                                          "font-weight: bold;"
-                                         "background-color: #8b0000")
+                                         "background-color: #6A1B1B")
+        return_button.clicked.connect(self.show_chce_schowac)
 
-        self.return_button.clicked.connect(self.show_chce_schowac)
+
+
+        def backspace():
+            line_edit.backspace()
+
+        backspace_button.clicked.connect(lambda: backspace())
+
+
+
+
+        #Layout instrukcji
+        instrukcja_layout = QHBoxLayout()
+        instrukcja_layout.addWidget(label)
+
+        #Layout do pola do pisania
+        line_edit_layout = QHBoxLayout()
+        line_edit_layout.addStretch(3)
+        line_edit_layout.addWidget(line_edit, 10)
+        line_edit_layout.addStretch(1)
+        line_edit_layout.addWidget(backspace_button)
+        line_edit_layout.addStretch(1)
+
+        # Przycisk powrot
+        bottom_layout = QHBoxLayout()
+        bottom_layout.addStretch(1)
+        bottom_layout.addWidget(return_button)
+
+
+        #Głowny pionowy Layout
+        vertical_layout = QVBoxLayout()
+        vertical_layout.addLayout(instrukcja_layout)
+        vertical_layout.addStretch(1)
+        vertical_layout.addLayout(line_edit_layout)
+        vertical_layout.addStretch(1)
+        vertical_layout.addLayout(layouts["numeric"], 5)
+        vertical_layout.addLayout(layouts["first_row"], 5)
+        vertical_layout.addLayout(layouts["second_row"], 5)
+        vertical_layout.addLayout(layouts["third_row"], 5)
+        vertical_layout.addLayout(bottom_layout)
+
+        widget.setLayout(vertical_layout)
+
+
+
+
 
         return widget
+
+
+
+
+
+
+
 
     def create_odbierz_paczke(self):
 
@@ -228,13 +349,13 @@ class MainWindow(QMainWindow):
         self.return_button.setStyleSheet("font-size: 25px;"
                                          "color: #f4f3f0;"
                                          "font-weight: bold;"
-                                         "background-color: #007f5f")
+                                         "background-color: #162f42")
         self.return_button.clicked.connect(self.show_chce_odebrac)
 
         # Tworzymy pole tekstowe do wprowadzania kodu
         self.line_edit = QLineEdit(widget)
         self.line_edit.setMinimumHeight(50)
-        self.line_edit.setStyleSheet("background-color: #007f5f;"
+        self.line_edit.setStyleSheet("background-color: #162f42;"
                                      "font-size: 33px;"
                                      "font-weight: bold;"
                                      "color: #f4f3f0;")
@@ -257,7 +378,7 @@ class MainWindow(QMainWindow):
         self.button_8, self.button_9, self.button_0, self.button_enter, self.button_back]
 
         for button in buttons:
-            button.setStyleSheet("background-color: #8b0000;"
+            button.setStyleSheet("background-color: #6A1B1B;"
                                  "font-size: 22px;"
                                  "color: #f4f3f0;"
                                  "font-weight: bold;")
@@ -344,6 +465,8 @@ class MainWindow(QMainWindow):
 
     def show_odbierz_paczke(self):
         self.stacked_widget.setCurrentWidget(self.odbierz_paczke)
+
+
     def show_chce_odebrac(self):
         self.stacked_widget.setCurrentWidget(self.chce_odebrac)
 

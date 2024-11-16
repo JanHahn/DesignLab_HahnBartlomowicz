@@ -105,28 +105,32 @@ class MainWindow(QMainWindow):
         # Która szafke wybierasz
         label = QLabel("WYBIERZ SKRYTKĘ", widget)
         label.setFont(QFont("Helvetica", 35))
-        label.setGeometry(0, 0, 800, 80)
+
         label.setStyleSheet("color: white; font-weight: bold;")
         label.setAlignment(Qt.AlignCenter and Qt.AlignHCenter)
 
         self.button1 = QPushButton("SKRYTKA 1", widget)
         self.button2 = QPushButton("SKRYTKA 2", widget)
+        self.button1.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.button2.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.button2.setMinimumHeight(40)
+        self.button1.setMinimumHeight(40)
 
         # Customizing buttons
-        self.button1.setGeometry(50, 100, 320, 220)
+
         self.button1.setStyleSheet("color: #f4f3f0;"
                                    "font-size: 35px;"
                                    "font-weight: bold;"
                                    "background-color: #6A1B1B;")
 
-        self.button2.setGeometry(450, 100, 320, 220)
+
         self.button2.setStyleSheet("color: #f4f3f0;"
                                    "font-size: 35px;"
                                    "font-weight: bold;"
                                    "background-color: #6A1B1B;")
 
         self.return_button = QPushButton("POWRÓT", widget)
-        self.return_button.setGeometry(650, 340, 140, 50)
+
         self.return_button.setStyleSheet("font-size: 25px;"
                                          "color: #f4f3f0;"
                                          "font-weight: bold;"
@@ -136,6 +140,28 @@ class MainWindow(QMainWindow):
 
         self.button1.clicked.connect(self.show_odbierz_paczke)
         self.button2.clicked.connect(self.show_odbierz_paczke)
+
+
+        vertical_layout = QVBoxLayout()
+        vertical_layout.addWidget(label, stretch=3)
+
+        #creating horizontal layout (nested layout for button)
+        horizontal_layout = QHBoxLayout()
+        horizontal_layout.addStretch(2)
+        horizontal_layout.addWidget(self.button1, 8)
+        horizontal_layout.addStretch(2)
+        horizontal_layout.addWidget(self.button2, 8)
+        horizontal_layout.addStretch(2)
+
+        # Przycisk powrot
+        bottom_layout = QHBoxLayout()
+        bottom_layout.addStretch(1)
+        bottom_layout.addWidget(self.return_button)
+
+        #adding horizontal layout with buttons to main vertical layout
+        vertical_layout.addLayout(horizontal_layout, stretch=8)
+        vertical_layout.addLayout(bottom_layout)
+        widget.setLayout(vertical_layout)
 
         return widget
 
@@ -155,6 +181,11 @@ class MainWindow(QMainWindow):
 
         self.button1 = QPushButton("SKRYTKA 1", widget)
         self.button2 = QPushButton("SKRYTKA 2", widget)
+
+        self.button1.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.button2.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.button2.setMinimumHeight(40)
+        self.button1.setMinimumHeight(40)
 
         # Customizing buttons
         self.button1.setGeometry(50, 100, 320, 220)
@@ -179,6 +210,27 @@ class MainWindow(QMainWindow):
         self.return_button.clicked.connect(self.show_main_menu)
         self.button1.clicked.connect(self.show_schowaj_paczke)
         self.button2.clicked.connect(self.show_schowaj_paczke)
+
+        vertical_layout = QVBoxLayout()
+        vertical_layout.addWidget(label, stretch=3)
+
+        # creating horizontal layout (nested layout for button)
+        horizontal_layout = QHBoxLayout()
+        horizontal_layout.addStretch(2)
+        horizontal_layout.addWidget(self.button1, 8)
+        horizontal_layout.addStretch(2)
+        horizontal_layout.addWidget(self.button2, 8)
+        horizontal_layout.addStretch(2)
+
+        # Przycisk powrot
+        bottom_layout = QHBoxLayout()
+        bottom_layout.addStretch(1)
+        bottom_layout.addWidget(self.return_button)
+
+        # adding horizontal layout with buttons to main vertical layout
+        vertical_layout.addLayout(horizontal_layout, stretch=8)
+        vertical_layout.addLayout(bottom_layout)
+        widget.setLayout(vertical_layout)
 
 
 

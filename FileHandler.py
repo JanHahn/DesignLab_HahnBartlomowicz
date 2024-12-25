@@ -1,6 +1,6 @@
 #class that handling all file operations for locker application
 
-class FileHandler():
+class FileHandler:
     def __init__(self, file_path):
         self.file_path = file_path
 
@@ -13,7 +13,7 @@ class FileHandler():
                 locker_list = text.split("\n")
                 for locker_info in locker_list:
                     tab = locker_info.split(':')
-                    if tab[0] == locker.locker_id:
+                    if int(tab[0]) == locker.locker_id:
                         return tab[1]
 
         except FileNotFoundError:

@@ -6,7 +6,7 @@ from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
 
 #KOCHAM MOJ
-
+#siema test
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -163,6 +163,7 @@ class MainWindow(QMainWindow):
         vertical_layout.addLayout(horizontal_layout, stretch=8)
         vertical_layout.addLayout(bottom_layout)
         widget.setLayout(vertical_layout)
+
 
         return widget
 

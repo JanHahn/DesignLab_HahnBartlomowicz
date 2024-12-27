@@ -1,28 +1,29 @@
 import sys
-from tkinter.ttk import Label
-
 from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QPushButton, QStackedWidget, QWidget, QRadioButton,
                              QHBoxLayout,
                              QVBoxLayout, QSizePolicy, QSpacerItem, QLineEdit, QGridLayout)
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
 
-#hello
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-
-        # Parameters for the window
         self.windowWidth = 800
         self.windowHeight = 400
+
+        self.initialize_ui()
+
+    def initialize_ui(self):
+
+        # Parameters for the window
+
         self.setWindowTitle("The Skrytka ")
         self.setGeometry(0, 0, self.windowWidth, self.windowHeight)
-
 
         # Creating stacked widget
         self.stacked_widget = QStackedWidget()
         self.setCentralWidget(self.stacked_widget)
-
 
         # Creating 5 views
         self.main_menu = self.create_main_menu()
@@ -31,14 +32,12 @@ class MainWindow(QMainWindow):
         self.schowaj_paczke = self.create_schowaj_paczke()
         self.odbierz_paczke = self.create_odbierz_paczke()
 
-
         # Adding different views to stacked widget
         self.stacked_widget.addWidget(self.main_menu)
         self.stacked_widget.addWidget(self.chce_odebrac)
         self.stacked_widget.addWidget(self.chce_schowac)
         self.stacked_widget.addWidget(self.schowaj_paczke)
         self.stacked_widget.addWidget(self.odbierz_paczke)
-
 
 
 
@@ -231,8 +230,6 @@ class MainWindow(QMainWindow):
         vertical_layout.addLayout(horizontal_layout, stretch=8)
         vertical_layout.addLayout(bottom_layout)
         widget.setLayout(vertical_layout)
-
-
 
         return widget
 

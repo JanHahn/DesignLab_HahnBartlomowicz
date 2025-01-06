@@ -7,6 +7,8 @@ from PyQt5.QtCore import Qt
 
 #from enter_email import EnterEmail
 from locked_successfully import LockSuccess
+from mail_sender import send_email
+import random
 
 
 class EmailConfirmation(QWidget):
@@ -105,6 +107,16 @@ class EmailConfirmation(QWidget):
         self.queue.put(self.backend_info)
         self.widget.showFullScreen()
         #self.widget.resize(1024, 600)
+        send_email(
+            sender_email='designlab.locker@gmail.com',
+            receiver_email=self.email,
+            subject='Design Lab Locker',
+            body=f'Hello, your unlock code is {random.randint(1000, 9999)} ',
+            smtp_server='smtp.gmail.com',  # Adres serwera SMTP (np. dla Gmail: 'smtp.gmail.com')
+            port=587,  # Port SMTP (np. dla Gmail: 587)
+            login='designlab.locker@gmail.com',
+            password='ddfg hdzm ombs faof'
+        )
 
 
     def back_clicked(self):

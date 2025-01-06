@@ -95,8 +95,9 @@ class MainWindow(QWidget):
 
     def check_queue(self):
         if not self.queue2.empty():
+            info = ""
             info = self.queue2.get()
-            self.timer.stop()  # Zatrzymaj timer po otrzymaniu odpowiedzi
+              # Zatrzymaj timer po otrzymaniu odpowiedzi
             return info
 
 

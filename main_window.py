@@ -80,7 +80,8 @@ class MainWindow(QWidget):
         self.timer.timeout.connect(self.check_queue)
         self.timer.start(100)  # Sprawdzaj kolejkę co 100 ms
         self.queue.put("is_free")
-        #self.widget_window1.resize(1024, 600)
+        widget_window2 = ChceOdebrac(self.queue, self.queue2, self.check_queue)
+        widget_window2.show()
 
     def button_pickup_clicked(self):
         lockers_status = ""
@@ -89,6 +90,8 @@ class MainWindow(QWidget):
         self.timer.start(100)  # Sprawdzaj kolejkę co 100 ms
         self.queue.put("is_free")
         #self.widget_window2.resize(1024, 600)
+        widget_window1 = ChceSchowac(self.queue, self.queue2, self.check_queue)
+        widget_window1.show()
 
     def connecting_buttons(self):
         self.pick_up_button.clicked.connect(self.button_pickup_clicked)
@@ -98,9 +101,7 @@ class MainWindow(QWidget):
         if not self.queue2.empty():
             info = self.queue2.get()
             self.timer.stop()  # Zatrzymaj timer po otrzymaniu odpowiedzi
-            widget_window1 = ChceSchowac(self.queue, self.queue2, info)
-            self.widget_window1.show()
-
+            return info
 
 
 

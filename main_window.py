@@ -22,7 +22,7 @@ class MainWindow(QWidget):
         self.setWindowTitle("Main Menu")
 
 
-        self.widget_window1 = ChceSchowac(self.queue, self.queue2)
+        self.widget_window1 = ChceSchowac(self.queue, self.queue2, "00")
 
 
         self.initUI()

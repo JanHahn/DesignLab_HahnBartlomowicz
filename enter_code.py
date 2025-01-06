@@ -12,8 +12,8 @@ class EnterCode(QWidget):
     def __init__(self, queue):
         super().__init__()
 
-        self.windowWidth = 800
-        self.windowHeight = 400
+        self.windowWidth = 1024
+        self.windowHeight = 600
         #self.showFullScreen()
         self.queue = queue
         self.label = QLabel("ENTER THE UNLOCK CODE", self)
@@ -170,9 +170,9 @@ class EnterCode(QWidget):
     def wrong_code_function(self):
         self.line_edit.clear()
         self.wrong_code_widget.showFullScreen()
-        self.wrong_code_widget.resize(800, 400)
+        self.wrong_code_widget.resize(1024, 600)
 
     def locker_opened_function(self):
         self.line_edit.clear()
         self.locker_opened_widget.showFullScreen()
-        self.locker_opened_widget.resize(800, 400)
+        self.locker_opened_widget.resize(1024, 600)

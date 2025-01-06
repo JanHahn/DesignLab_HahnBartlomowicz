@@ -12,6 +12,8 @@ class EnterEmail(QWidget):
         super().__init__()
 
         self.queue = queue
+        self.window_width = 1024
+        self.window_height = 600
         # Creating label, line edit and buttons needed
         self.label = QLabel()
         self.line_edit = QLineEdit(self)
@@ -51,7 +53,7 @@ class EnterEmail(QWidget):
 
     def init_ui(self):
         self.setStyleSheet("background-color: #2d2d2d;")
-        self.setGeometry(0, 0, self.windowWidth, self.windowHeight)
+        self.setGeometry(0, 0, self.window_width, self.window_height)
 
 
         # Styling label
@@ -184,7 +186,7 @@ class EnterEmail(QWidget):
 
         self.widget = EmailConfirmation(users_email, self.queue)
         self.widget.showFullScreen()
-        self.widget.resize(800, 400)
+        self.widget.resize(1024, 600)
         self.line_edit.clear()
 
     def connect_confirm_button(self):

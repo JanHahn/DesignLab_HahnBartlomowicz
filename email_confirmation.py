@@ -15,8 +15,8 @@ class EmailConfirmation(QWidget):
 
         self.queue = queue
         #self.showFullScreen()
-        self.windowWidth = 800
-        self.windowHeight = 400
+        self.windowWidth = 1024
+        self.windowHeight = 600
         self.email = email
         self.widget = LockSuccess(self.queue)
         self.showFullScreen()
@@ -101,7 +101,7 @@ class EmailConfirmation(QWidget):
 
     def lock_clicked(self):
         self.widget.showFullScreen()
-        self.widget.resize(800, 400)
+        self.widget.resize(1024, 600)
 
 
     def back_clicked(self):

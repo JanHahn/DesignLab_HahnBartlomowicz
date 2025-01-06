@@ -23,5 +23,5 @@ class FileHandler:
 
     #TODO finish replacing file
     def change_status(self, locker):
-        with open(self.file_path, 'r') as locker_file:
+        with open(self.file_path, 'a') as locker_file:
             text = locker_file.read()

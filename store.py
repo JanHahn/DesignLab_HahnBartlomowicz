@@ -11,8 +11,8 @@ class ChceSchowac(QWidget):
         super().__init__()
 
         self.queue = queue
-        self.windowWidth = 800
-        self.windowHeight = 400
+        self.windowWidth = 1024
+        self.windowHeight = 600
         self.label = QLabel("CHOOSE THE LOCKER")
         self.locker1_button = QPushButton("LOCKER 1")
         self.locker2_button = QPushButton("LOCKER 2")
@@ -92,12 +92,12 @@ class ChceSchowac(QWidget):
     def locker1_clicked(self):
         self.flag = 1
         self.widget1.showFullScreen()
-        self.widget1.resize(800, 400)
+        self.widget1.resize(1024, 600)
 
     def locker2_clicked(self):
         self.flag = 2
         self.widget2.showFullScreen()
-        self.widget2.resize(800, 400)
+        self.widget2.resize(1024, 600)
 
 
     def connecting_buttons(self):

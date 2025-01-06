@@ -14,8 +14,8 @@ class MainWindow(QWidget):
 
         self.queue = queue
         self.showFullScreen()
-        self.windowWidth = 800
-        self.windowHeight = 400
+        self.windowWidth = 1024
+        self.windowHeight = 600
         self.greeting_label = QLabel("WELCOME TO THE LOCKER")
         self.pick_up_button = QPushButton("PICK UP")
         self.store_button = QPushButton("STORE")
@@ -77,11 +77,11 @@ class MainWindow(QWidget):
     def button_schowac_clicked(self):
         self.queue.put("siema")
         self.widget_window1.showFullScreen()
-        self.widget_window1.resize(800, 400)
+        self.widget_window1.resize(1024, 600)
 
     def button_odebrac_clicked(self):
         self.widget_window2.showFullScreen()
-        self.widget_window2.resize(800, 400)
+        self.widget_window2.resize(1024, 600)
 
     def connecting_buttons(self):
         self.pick_up_button.clicked.connect(self.button_odebrac_clicked)

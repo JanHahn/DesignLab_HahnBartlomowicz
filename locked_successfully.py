@@ -11,8 +11,8 @@ import time
 class LockSuccess(QWidget):
     def __init__(self, queue):
         super().__init__()
-        self.windowWidth = 800
-        self.windowHeight = 400
+        self.windowWidth = 1024
+        self.windowHeight = 600
 
         self.queue = queue
         self.QTimer = QTimer()

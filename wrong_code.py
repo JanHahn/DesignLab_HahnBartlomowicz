@@ -11,8 +11,8 @@ import time
 class WrongCode(QWidget):
     def __init__(self, queue):
         super().__init__()
-        self.windowWidth = 800
-        self.windowHeight = 400
+        self.windowWidth = 1024
+        self.windowHeight = 600
 
         self.QTimer = QTimer()
         self.label = QLabel("Wrong unlock code!")

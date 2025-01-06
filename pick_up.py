@@ -12,8 +12,8 @@ class ChceOdebrac(QWidget):
 
         self.queue = queue
         #self.central_widget = QWidget(self)
-        #self.windowWidth = 800
-        #self.windowHeight = 400
+        self.windowWidth = 1024
+        self.windowHeight = 600
         self.label = QLabel("CHOOSE THE LOCKER")
         self.locker1_button = QPushButton("LOCKER 1")
         self.locker2_button = QPushButton("LOCKER 2")
@@ -90,12 +90,12 @@ class ChceOdebrac(QWidget):
 
     def skrytka1_clicked(self):
         self.widget1.showFullScreen()
-        self.widget1.resize(800, 400)
+        self.widget1.resize(1024, 600)
 
 
     def skrytka2_clicked(self):
         self.widget2.showFullScreen()
-        self.widget2.resize(800, 400)
+        self.widget2.resize(1024, 600)
 
 
     def connecting_buttons(self):
@@ -108,12 +108,3 @@ class ChceOdebrac(QWidget):
         pass
 
 
-# def main():
-#     app = QApplication(sys.argv)
-#     window = ChceOdebrac()
-#     window.show()
-#     sys.exit(app.exec_())
-#
-#
-# if __name__ == "__main__":
-#     main()

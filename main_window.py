@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QPushButton, QSt
                              QHBoxLayout,
                              QVBoxLayout, QSizePolicy, QSpacerItem, QLineEdit, QGridLayout)
 from PyQt5.QtGui import QFont
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QTimer
 from pick_up import ChceOdebrac
 from store import ChceSchowac
 
@@ -76,31 +76,30 @@ class MainWindow(QWidget):
 
     def button_store_clicked(self):
         lockers_status = ""
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.check_queue)
+        self.timer.start(100)  # Sprawdzaj kolejkę co 100 ms
         self.queue.put("is_free")
-        while True:
-            if not self.queue2.empty():
-                info = self.queue2.get()
-                lockers_status = info
-                break
-        widget_window1 = ChceSchowac(self.queue, self.queue2, lockers_status)
-        self.widget_window1.show()
         #self.widget_window1.resize(1024, 600)
 
     def button_pickup_clicked(self):
         lockers_status = ""
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.check_queue)
+        self.timer.start(100)  # Sprawdzaj kolejkę co 100 ms
         self.queue.put("is_free")
-        while True:
-            if not self.queue2.empty():
-                info = self.queue2.get()
-                lockers_status = info
-                break
-        widget_window2 = ChceOdebrac(self.queue, self.queue2, lockers_status)
-        widget_window2.show()
         #self.widget_window2.resize(1024, 600)
 
     def connecting_buttons(self):
         self.pick_up_button.clicked.connect(self.button_pickup_clicked)
         self.store_button.clicked.connect(self.button_store_clicked)
+
+    def check_queue(self):
+        if not self.queue2.empty():
+            info = self.queue2.get()
+            self.timer.stop()  # Zatrzymaj timer po otrzymaniu odpowiedzi
+            widget_window1 = ChceSchowac(self.queue, self.queue2, info)
+            self.widget_window1.show()
 
 
 

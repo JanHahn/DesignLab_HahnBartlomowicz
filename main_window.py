@@ -22,7 +22,7 @@ class MainWindow(QWidget):
         self.setWindowTitle("Main Menu")
 
 
-        self.widget_window2 = ChceOdebrac(self.queue, self.queue2)
+        self.widget_window1 = ChceSchowac(self.queue, self.queue2)
 
 
         self.initUI()
@@ -87,7 +87,7 @@ class MainWindow(QWidget):
                 info = self.queue2.get()
                 lockers_status = info
                 break
-        widget_window2 = ChceSchowac(self.queue, self.queue2, lockers_status)
+        widget_window2 = ChceOdebrac(self.queue, self.queue2, lockers_status)
         widget_window2.show()
         #self.widget_window2.resize(1024, 600)
 

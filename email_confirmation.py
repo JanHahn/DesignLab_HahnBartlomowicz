@@ -1,0 +1,117 @@
+import sys
+from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QPushButton, QStackedWidget, QWidget, QRadioButton,
+                             QHBoxLayout,
+                             QVBoxLayout, QSizePolicy, QSpacerItem, QLineEdit, QGridLayout)
+from PyQt5.QtGui import QFont
+from PyQt5.QtCore import Qt
+
+#from enter_email import EnterEmail
+from locked_successfully import LockSuccess
+
+
+class EmailConfirmation(QWidget):
+    def __init__(self, email):
+        super().__init__()
+
+        #self.showFullScreen()
+        self.windowWidth = 800
+        self.windowHeight = 400
+        self.email = email
+        self.widget = LockSuccess()
+        self.showFullScreen()
+
+
+        # Creating label, line edit and buttons needed
+        self.label = QLabel("Make sure the email is correct")
+        self.email_label = QLabel(email)
+        self.lock_button = QPushButton("YES, LOCK IN!")
+        self.return_button = QPushButton("BACK")
+
+        self.init_ui()
+        self.layaout_managment()
+        self.buttons_size_policy()
+        self.disabling_lock_button()
+        self.connecting_buttons()
+
+
+
+    def init_ui(self):
+        self.setStyleSheet("background-color: #2d2d2d;")
+        self.setGeometry(0, 0, self.windowWidth, self.windowHeight)
+
+        self.label.setFont(QFont("Helvetica", 25))
+        self.label.setStyleSheet("color: white;"
+                            "font-weight: bold;")
+        self.label.setAlignment(Qt.AlignCenter | Qt.AlignHCenter)
+
+        self.email_label.setFont(QFont("Helvetica", 25))
+        self.email_label.setStyleSheet("color: lightgrey;"
+                                 "font-weight: bold;")
+        self.email_label.setAlignment(Qt.AlignCenter | Qt.AlignHCenter)
+
+        self.return_button.setStyleSheet("font-size: 25px;"
+                                         "color: #f4f3f0;"
+                                         "font-weight: bold;"
+                                         "background-color: #162f42")
+
+        self.lock_button.setStyleSheet("font-size: 25px;"
+                                         "color: white;"
+                                         "font-weight: bold;"
+                                         "background-color: #6A1B1B;")
+
+    def buttons_size_policy(self):
+        self.lock_button.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.lock_button.setMinimumHeight(40)
+
+
+
+
+    def layaout_managment(self):
+        button_layout = QHBoxLayout()
+        button_layout.addStretch(1)
+        button_layout.addWidget(self.lock_button, stretch=3)
+        button_layout.addStretch(1)
+
+        back_button_layout = QHBoxLayout()
+        back_button_layout.addStretch(1)
+        back_button_layout.addWidget(self.return_button, stretch=3)
+        back_button_layout.addStretch(1)
+
+        main_layout = QVBoxLayout()
+        main_layout.addStretch(1)
+        main_layout.addWidget(self.label)
+        main_layout.addStretch(1)
+        main_layout.addWidget(self.email_label)
+        main_layout.addStretch(2)
+        main_layout.addLayout(button_layout, stretch=3)
+        main_layout.addStretch(1)
+        main_layout.addLayout(back_button_layout, stretch=2)
+        main_layout.addStretch(1)
+
+        self.setLayout(main_layout)
+
+    def disabling_lock_button(self):
+        if self.email == "No email provided":
+            self.lock_button.setDisabled(True)
+
+    def connecting_buttons(self):
+        self.lock_button.clicked.connect(self.lock_clicked)
+        self.return_button.clicked.connect(self.back_clicked)
+
+    def lock_clicked(self):
+        self.widget.showFullScreen()
+        self.widget.resize(800, 400)
+
+
+    def back_clicked(self):
+        self.close()
+
+# def main():
+#     app = QApplication(sys.argv)
+#     window = EmailConfirmation(email="exampleemail@gmail.com")
+#     window.show()
+#     sys.exit(app.exec_())
+#
+#
+# if __name__ == "__main__":
+#     main()

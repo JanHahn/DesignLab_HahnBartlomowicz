@@ -32,7 +32,7 @@ class ChceOdebrac(QWidget):
 
     def init_ui(self):
         self.setStyleSheet("background-color: #2d2d2d;")
-        #self.setGeometry(0, 0, self.windowWidth, self.windowHeight)
+        self.setGeometry(0, 0, self.windowWidth, self.windowHeight)
 
         # Styling Label
         self.label.setFont(QFont("Helvetica", 35))

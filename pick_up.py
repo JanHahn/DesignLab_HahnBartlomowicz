@@ -7,9 +7,10 @@ from PyQt5.QtCore import Qt
 from enter_code import EnterCode
 
 class ChceOdebrac(QWidget):
-    def __init__(self, queue, queue2):
+    def __init__(self, queue, queue2, lockers_status):
         super().__init__()
 
+        self.lockers_status = lockers_status
         self.queue = queue
         self.queue2 = queue2
         #self.central_widget = QWidget(self)
@@ -102,6 +103,10 @@ class ChceOdebrac(QWidget):
     def connecting_buttons(self):
         self.locker1_button.clicked.connect(self.skrytka1_clicked)
         self.locker2_button.clicked.connect(self.skrytka2_clicked)
+
+    def disabling_buttons(self):
+        self.locker1_button.setDisabled(int(self.lockers_status[0]))
+        self.locker2_button.setDisabled(int(self.lockers_status[1]))
 
 #TODO
     def disabling_buttons(self):

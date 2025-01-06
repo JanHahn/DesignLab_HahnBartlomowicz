@@ -22,7 +22,7 @@ class MainWindow(QWidget):
         self.setWindowTitle("Main Menu")
 
 
-        self.widget_window1 = ChceSchowac(self.queue, self.queue2, "00")
+
 
 
         self.initUI()
@@ -75,7 +75,14 @@ class MainWindow(QWidget):
         self.setLayout(main_layout)
 
     def button_store_clicked(self):
+        lockers_status = ""
         self.queue.put("is_free")
+        while True:
+            if not self.queue2.empty():
+                info = self.queue2.get()
+                lockers_status = info
+                break
+        widget_window1 = ChceSchowac(self.queue, self.queue2, lockers_status)
         self.widget_window1.show()
         #self.widget_window1.resize(1024, 600)
 

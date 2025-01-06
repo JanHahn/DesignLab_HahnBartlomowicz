@@ -6,6 +6,7 @@ from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt, QTimer
 from pick_up import ChceOdebrac
 from store import ChceSchowac
+from locked_successfully import LockSuccess
 
 
 class MainWindow(QWidget):
@@ -22,7 +23,7 @@ class MainWindow(QWidget):
         self.setWindowTitle("Main Menu")
 
         self.timer = QTimer()
-
+        self.openxd = LockSuccess()
         self.initUI()
         self.layout_managment()
         self.scaling_buttons()
@@ -95,7 +96,7 @@ class MainWindow(QWidget):
             info = self.queue2.get()
             print(f"{info}")
             widget_window2 = ChceOdebrac(self.queue, self.queue2, info)
-            widget_window2.show()
+            self.openxd.show()
             print("check")
 
 

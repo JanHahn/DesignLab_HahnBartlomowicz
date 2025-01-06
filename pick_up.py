@@ -104,7 +104,5 @@ class ChceOdebrac(QWidget):
 
 #TODO
     def disabling_buttons(self):
-        #jesli ktoras ze skrytek jest zamknieta wyłączyc przycisk
-        pass
-
+        self.queue.put("is_free")
 

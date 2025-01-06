@@ -73,18 +73,17 @@ class MainWindow(QWidget):
 
         self.setLayout(main_layout)
 
-    def button_schowac_clicked(self):
-        self.queue.put("siema")
+    def button_store_clicked(self):
         self.widget_window1.show()
         #self.widget_window1.resize(1024, 600)
 
-    def button_odebrac_clicked(self):
+    def button_pickup_clicked(self):
         self.widget_window2.show()
         #self.widget_window2.resize(1024, 600)
 
     def connecting_buttons(self):
-        self.pick_up_button.clicked.connect(self.button_odebrac_clicked)
-        self.store_button.clicked.connect(self.button_schowac_clicked)
+        self.pick_up_button.clicked.connect(self.button_pickup_clicked)
+        self.store_button.clicked.connect(self.button_store_clicked)
 
 
 

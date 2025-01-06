@@ -8,9 +8,10 @@ from PyQt5.QtCore import Qt
 from email_confirmation import EmailConfirmation
 
 class EnterEmail(QWidget):
-    def __init__(self, queue):
+    def __init__(self, queue, locker_id):
         super().__init__()
 
+        self.locker_id = locker_id
         self.queue = queue
         self.window_width = 1024
         self.window_height = 600
@@ -183,8 +184,9 @@ class EnterEmail(QWidget):
             users_email = "No email provided"
         else:
             users_email = users_input
+            backend_info = self.locker_id + users_email
 
-        self.widget = EmailConfirmation(users_email, self.queue)
+        self.widget = EmailConfirmation(users_email, self.queue, backend_info)
         self.widget.show()
         #self.widget.resize(1024, 600)
         self.line_edit.clear()
@@ -192,21 +194,5 @@ class EnterEmail(QWidget):
     def connect_confirm_button(self):
         self.confirm_button.clicked.connect(self.confirm_button_clicked)
 
-
-
-#TODO
-
-
-
-# def main():
-#     app = QApplication(sys.argv)
-#     window =EnterEmail()
-#     window.show()
-#     sys.exit(app.exec_())
-#
-#
-# if __name__ == "__main__":
-#     main()
-#
 
 

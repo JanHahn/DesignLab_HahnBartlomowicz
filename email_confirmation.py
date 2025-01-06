@@ -10,9 +10,10 @@ from locked_successfully import LockSuccess
 
 
 class EmailConfirmation(QWidget):
-    def __init__(self, email, queue):
+    def __init__(self, email, queue, backend_info):
         super().__init__()
 
+        self.backend_info = backend_info
         self.queue = queue
         #self.showFullScreen()
         self.windowWidth = 1024
@@ -100,6 +101,7 @@ class EmailConfirmation(QWidget):
         self.return_button.clicked.connect(self.back_clicked)
 
     def lock_clicked(self):
+        self.queue.put(self.backend_info)
         self.widget.showFullScreen()
         #self.widget.resize(1024, 600)
 

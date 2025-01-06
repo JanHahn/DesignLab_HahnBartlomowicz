@@ -10,6 +10,7 @@ class ChceSchowac(QWidget):
     def __init__(self, queue):
         super().__init__()
 
+
         self.queue = queue
         self.windowWidth = 1024
         self.windowHeight = 600
@@ -19,8 +20,8 @@ class ChceSchowac(QWidget):
         self.back_button = QPushButton("BACK")
         self.flag = 0
 
-        self.widget1 = EnterEmail(self.queue)
-        self.widget2 = EnterEmail(self.queue)
+
+
 
         self.initUI()
         self.layout_managment()
@@ -90,12 +91,14 @@ class ChceSchowac(QWidget):
         self.back_button.clicked.connect(self.close)
 
     def locker1_clicked(self):
-        self.flag = 1
-        self.widget1.show()
+        locker_id = "1"
+        widget1 = EnterEmail(self.queue, locker_id)
+        widget1.show()
         #self.widget1.resize(1024, 600)
 
     def locker2_clicked(self):
-        self.flag = 2
+        locker_id = "2"
+        widget2 = EnterEmail(self.queue, locker_id)
         self.widget2.show()
         #self.widget2.resize(1024, 600)
 
@@ -105,11 +108,8 @@ class ChceSchowac(QWidget):
         self.locker2_button.clicked.connect(self.locker2_clicked)
 
 
-
-    #TODO
     def disabling_buttons(self):
-        #jesli ktoras ze skrytek jest zamknieta wyłączyc przycisk
-        pass
+        self.queue.put("is_free")
 
 # def main():
 #     app = QApplication(sys.argv)

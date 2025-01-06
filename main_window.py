@@ -22,10 +22,6 @@ class MainWindow(QWidget):
         self.setWindowTitle("Main Menu")
 
         self.timer = QTimer()
-        self.timer.timeout.connect(self.check_queue)
-        self.timer.start(100)  # Sprawdzaj kolejkę co 100 ms
-
-
 
         self.initUI()
         self.layout_managment()
@@ -77,28 +73,29 @@ class MainWindow(QWidget):
         self.setLayout(main_layout)
 
     def button_store_clicked(self):
-        lockers_status = ""
         self.queue.put("is_free")
-        widget_window2 = ChceSchowac(self.queue, self.queue2, self.check_queue)
-        widget_window2.show()
+        self.timer.timeout.connect(self.check_queue)
+        self.timer.start(100)  # Sprawdzaj kolejkę co 100 ms
 
     def button_pickup_clicked(self):
-        lockers_status = ""
         self.queue.put("is_free")
-        #self.widget_window2.resize(1024, 600)
-        widget_window1 = ChceOdebrac(self.queue, self.queue2, self.check_queue)
-        widget_window1.show()
+        self.timer.timeout.connect(self.check_queue)
+        self.timer.start(100)  # Sprawdzaj kolejkę co 100 ms
+
 
     def connecting_buttons(self):
         self.pick_up_button.clicked.connect(self.button_pickup_clicked)
         self.store_button.clicked.connect(self.button_store_clicked)
 
     def check_queue(self):
+        print("frontend sprawdza kolejke")
         if not self.queue2.empty():
-            info = ""
+            print("frontend otrzymal informacje")
             info = self.queue2.get()
-              # Zatrzymaj timer po otrzymaniu odpowiedzi
-            return info
+            widget_window2 = ChceOdebrac(self.queue, self.queue2, info)
+            widget_window2.show()
+
+
 
 
 

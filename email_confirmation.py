@@ -101,7 +101,7 @@ class EmailConfirmation(QWidget):
 
     def lock_clicked(self):
         self.widget.showFullScreen()
-        self.widget.resize(1024, 600)
+        #self.widget.resize(1024, 600)
 
 
     def back_clicked(self):

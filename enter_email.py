@@ -185,8 +185,8 @@ class EnterEmail(QWidget):
             users_email = users_input
 
         self.widget = EmailConfirmation(users_email, self.queue)
-        self.widget.showFullScreen()
-        self.widget.resize(1024, 600)
+        self.widget.show()
+        #self.widget.resize(1024, 600)
         self.line_edit.clear()
 
     def connect_confirm_button(self):

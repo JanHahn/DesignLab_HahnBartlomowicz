@@ -29,6 +29,7 @@ class ChceSchowac(QWidget):
         self.scaling_buttons()
         self.return_button()
         self.connecting_buttons()
+        self.disabling_buttons()
 
 
     def initUI(self):

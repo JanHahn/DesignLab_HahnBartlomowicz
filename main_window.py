@@ -93,6 +93,7 @@ class MainWindow(QWidget):
             self.timer.stop()
             print("frontend otrzymal informacje")
             info = self.queue2.get()
+            print(f"{info}")
             widget_window2 = ChceOdebrac(self.queue, self.queue2, info)
             widget_window2.show()
 

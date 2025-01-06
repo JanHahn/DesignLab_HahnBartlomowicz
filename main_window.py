@@ -75,12 +75,12 @@ class MainWindow(QWidget):
 
     def button_store_clicked(self):
         self.queue.put("is_free")
-        self.timer.timeout.connect(self.show_store())
+        self.timer.timeout.connect(self.show_store)
         self.timer.start(100)  # Sprawdzaj kolejkę co 100 ms
 
     def button_pickup_clicked(self):
         self.queue.put("is_free")
-        self.timer.timeout.connect(self.show_pick_up())
+        self.timer.timeout.connect(self.show_pick_up)
         self.timer.start(100)  # Sprawdzaj kolejkę co 100 ms
 
 

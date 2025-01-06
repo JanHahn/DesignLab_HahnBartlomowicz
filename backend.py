@@ -28,7 +28,7 @@ def set_gpio():
     print(f"Pin {REED_SWITCH1_INPUT} ustawiono jako wejscie")
 
 #backend loop
-def application(request_queue: Queue):
+def application(request_queue: Queue, queue2):
     set_gpio()
     file_handler = FileHandler(FILE_PATH)
     locker1 = Locker(1, LOCK1_OUTPUT, REED_SWITCH1_INPUT)
@@ -51,11 +51,12 @@ def application(request_queue: Queue):
                 locker2.open()
                 locker2_start_time = 0
 
-        if not request_queue.empty():
+
             message = request_queue.get()
             #TODO add communication with frontend
             if message == "is_free":
                 print("odebrano komende")
+                queue2.put("00")
             if message == "command2":
                 pass
 

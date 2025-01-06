@@ -21,7 +21,7 @@ class MainWindow(QWidget):
         self.store_button = QPushButton("STORE")
         self.setWindowTitle("Main Menu")
 
-        self.widget_window1 = ChceSchowac(self.queue, self.queue2)
+
         self.widget_window2 = ChceOdebrac(self.queue, self.queue2)
 
 
@@ -75,11 +75,20 @@ class MainWindow(QWidget):
         self.setLayout(main_layout)
 
     def button_store_clicked(self):
+        self.queue.put("is_free")
         self.widget_window1.show()
         #self.widget_window1.resize(1024, 600)
 
     def button_pickup_clicked(self):
-        self.widget_window2.show()
+        lockers_status = ""
+        self.queue.put("is_free")
+        while True:
+            if not self.queue2.empty():
+                info = self.queue2.get()
+                lockers_status = info
+                break
+        widget_window2 = ChceSchowac(self.queue, self.queue2, lockers_status)
+        widget_window2.show()
         #self.widget_window2.resize(1024, 600)
 
     def connecting_buttons(self):

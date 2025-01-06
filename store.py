@@ -7,10 +7,10 @@ from PyQt5.QtCore import Qt
 from enter_email import EnterEmail
 
 class ChceSchowac(QWidget):
-    def __init__(self, queue, queue2):
+    def __init__(self, queue, queue2, lockers_status):
         super().__init__()
 
-
+        self.lockers_status = lockers_status
         self.queue = queue
         self.queue2 = queue2
         self.windowWidth = 1024
@@ -110,7 +110,8 @@ class ChceSchowac(QWidget):
 
 
     def disabling_buttons(self):
-        self.queue.put("is_free")
+        self.locker1_button.setDisabled(int(self.lockers_status[0]))
+        self.locker2_button.setDisabled(int(self.lockers_status[1]))
 
 # def main():
 #     app = QApplication(sys.argv)

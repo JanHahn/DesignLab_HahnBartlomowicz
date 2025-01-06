@@ -9,18 +9,18 @@ from opened_successfully import OpenSuccess
 
 
 class EnterCode(QWidget):
-    def __init__(self):
+    def __init__(self, queue):
         super().__init__()
 
         self.windowWidth = 800
         self.windowHeight = 400
         #self.showFullScreen()
-
+        self.queue = queue
         self.label = QLabel("ENTER THE UNLOCK CODE", self)
         self.line_edit = QLineEdit(self)
 
-        self.wrong_code_widget = WrongCode()
-        self.locker_opened_widget = OpenSuccess()
+        self.wrong_code_widget = WrongCode(self.queue)
+        self.locker_opened_widget = OpenSuccess(self.queue)
 
         # Creating all buttons
         self.button_1 = QPushButton("1")

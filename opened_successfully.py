@@ -9,11 +9,12 @@ import time
 
 
 class OpenSuccess(QWidget):
-    def __init__(self):
+    def __init__(self, queue):
         super().__init__()
         self.windowWidth = 800
         self.windowHeight = 400
 
+        self.queue = queue
         self.label = QLabel("Locker opened successfully!")
         self.finished_button = QPushButton("Back to main menu")
         self.init_ui()
@@ -67,8 +68,3 @@ class OpenSuccess(QWidget):
             if window.windowTitle() != "Main Menu":
                 window.close()
 
-
-    # def close_after_5s(self):
-    #     for window in QApplication.topLevelWidgets():
-    #         if window.windowTitle() != "Main Menu":
-    #             window.close()

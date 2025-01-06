@@ -10,14 +10,15 @@ from locked_successfully import LockSuccess
 
 
 class EmailConfirmation(QWidget):
-    def __init__(self, email):
+    def __init__(self, email, queue):
         super().__init__()
 
+        self.queue = queue
         #self.showFullScreen()
         self.windowWidth = 800
         self.windowHeight = 400
         self.email = email
-        self.widget = LockSuccess()
+        self.widget = LockSuccess(self.queue)
         self.showFullScreen()
 
 
@@ -106,12 +107,3 @@ class EmailConfirmation(QWidget):
     def back_clicked(self):
         self.close()
 
-# def main():
-#     app = QApplication(sys.argv)
-#     window = EmailConfirmation(email="exampleemail@gmail.com")
-#     window.show()
-#     sys.exit(app.exec_())
-#
-#
-# if __name__ == "__main__":
-#     main()

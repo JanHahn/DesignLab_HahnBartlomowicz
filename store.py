@@ -7,25 +7,27 @@ from PyQt5.QtCore import Qt
 from enter_email import EnterEmail
 
 class ChceSchowac(QWidget):
-    def __init__(self):
+    def __init__(self, queue):
         super().__init__()
 
-
+        self.queue = queue
         self.windowWidth = 800
         self.windowHeight = 400
         self.label = QLabel("CHOOSE THE LOCKER")
         self.locker1_button = QPushButton("LOCKER 1")
         self.locker2_button = QPushButton("LOCKER 2")
         self.back_button = QPushButton("BACK")
+        self.flag = 0
 
-        self.widget1 = EnterEmail()
-        self.widget2 = EnterEmail()
+        self.widget1 = EnterEmail(self.queue)
+        self.widget2 = EnterEmail(self.queue)
 
         self.initUI()
         self.layout_managment()
         self.scaling_buttons()
         self.return_button()
         self.connecting_buttons()
+
 
     def initUI(self):
         self.setStyleSheet("background-color: #2d2d2d;")
@@ -87,18 +89,20 @@ class ChceSchowac(QWidget):
     def return_button(self):
         self.back_button.clicked.connect(self.close)
 
-    def skrytka1_clicked(self):
+    def locker1_clicked(self):
+        self.flag = 1
         self.widget1.showFullScreen()
         self.widget1.resize(800, 400)
 
-    def skrytka2_clicked(self):
+    def locker2_clicked(self):
+        self.flag = 2
         self.widget2.showFullScreen()
         self.widget2.resize(800, 400)
 
 
     def connecting_buttons(self):
-        self.locker1_button.clicked.connect(self.skrytka1_clicked)
-        self.locker2_button.clicked.connect(self.skrytka2_clicked)
+        self.locker1_button.clicked.connect(self.locker1_clicked)
+        self.locker2_button.clicked.connect(self.locker2_clicked)
 
 
 

@@ -8,23 +8,16 @@ from PyQt5.QtCore import Qt
 from email_confirmation import EmailConfirmation
 
 class EnterEmail(QWidget):
-    def __init__(self):
+    def __init__(self, queue):
         super().__init__()
-        self.windowWidth = 800
-        self.windowHeight = 400
 
-
+        self.queue = queue
         # Creating label, line edit and buttons needed
         self.label = QLabel()
         self.line_edit = QLineEdit(self)
         self.backspace_button = QPushButton("⌫")
         self.return_button = QPushButton("BACK")
         self.confirm_button = QPushButton("CONFIRM")
-
-
-
-
-
 
         self.keyboard_rows = {
             "numeric": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],  # 10
@@ -189,7 +182,7 @@ class EnterEmail(QWidget):
         else:
             users_email = users_input
 
-        self.widget = EmailConfirmation(users_email)
+        self.widget = EmailConfirmation(users_email, self.queue)
         self.widget.showFullScreen()
         self.widget.resize(800, 400)
         self.line_edit.clear()

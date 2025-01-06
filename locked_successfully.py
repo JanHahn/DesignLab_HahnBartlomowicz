@@ -9,11 +9,12 @@ import time
 
 
 class LockSuccess(QWidget):
-    def __init__(self):
+    def __init__(self, queue):
         super().__init__()
         self.windowWidth = 800
         self.windowHeight = 400
 
+        self.queue = queue
         self.QTimer = QTimer()
         self.label = QLabel("Locker locked successfully!")
         self.finished_button = QPushButton("Back to main menu")
@@ -63,13 +64,9 @@ class LockSuccess(QWidget):
     def connecting_finished_button(self):
         self.finished_button.clicked.connect(self.finished_button_clicked)
 
+
     def finished_button_clicked(self):
         for window in QApplication.topLevelWidgets():
             if window.windowTitle() != "Main Menu":
                 window.close()
 
-
-    # def close_after_5s(self):
-    #     for window in QApplication.topLevelWidgets():
-    #         if window.windowTitle() != "Main Menu":
-    #             window.close()

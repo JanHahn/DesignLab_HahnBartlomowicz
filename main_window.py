@@ -9,9 +9,10 @@ from store import ChceSchowac
 
 
 class MainWindow(QWidget):
-    def __init__(self):
+    def __init__(self, queue):
         super().__init__()
 
+        self.queue = queue
         self.showFullScreen()
         self.windowWidth = 800
         self.windowHeight = 400
@@ -20,8 +21,8 @@ class MainWindow(QWidget):
         self.store_button = QPushButton("STORE")
         self.setWindowTitle("Main Menu")
 
-        self.widget_window1 = ChceSchowac()
-        self.widget_window2 = ChceOdebrac()
+        self.widget_window1 = ChceSchowac(self.queue)
+        self.widget_window2 = ChceOdebrac(self.queue)
 
 
         self.initUI()
@@ -74,6 +75,7 @@ class MainWindow(QWidget):
         self.setLayout(main_layout)
 
     def button_schowac_clicked(self):
+        self.queue.put("siema")
         self.widget_window1.showFullScreen()
         self.widget_window1.resize(800, 400)
 

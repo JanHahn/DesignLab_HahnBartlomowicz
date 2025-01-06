@@ -32,7 +32,7 @@ def application(request_queue: Queue):
     set_gpio()
     file_handler = FileHandler(FILE_PATH)
     locker1 = Locker(1, LOCK1_OUTPUT, REED_SWITCH1_INPUT)
-    locker2 = Locker(1, LOCK2_OUTPUT, REED_SWITCH2_INPUT)
+    locker2 = Locker(2, LOCK2_OUTPUT, REED_SWITCH2_INPUT)
     locker1_start_time = 0
     locker2_start_time = 0
 
@@ -54,8 +54,8 @@ def application(request_queue: Queue):
         if not request_queue.empty():
             message = request_queue.get()
             #TODO add communication with frontend
-            if message == "command1":
-                pass
+            if message == "siema":
+                print("odebrano komende")
             if message == "command2":
                 pass
 

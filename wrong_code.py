@@ -9,7 +9,7 @@ import time
 
 
 class WrongCode(QWidget):
-    def __init__(self):
+    def __init__(self, queue):
         super().__init__()
         self.windowWidth = 800
         self.windowHeight = 400

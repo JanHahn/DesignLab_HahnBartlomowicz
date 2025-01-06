@@ -51,7 +51,7 @@ def application(request_queue: Queue, queue2):
                 locker2.open()
                 locker2_start_time = 0
 
-
+        if not request_queue.empty():
             message = request_queue.get()
             #TODO add communication with frontend
             if message == "is_free":

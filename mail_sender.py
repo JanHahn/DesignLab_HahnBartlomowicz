@@ -21,9 +21,9 @@ def send_email(sender_email, receiver_email, subject, body, smtp_server, port, l
             server.starttls()  # Użycie TLS do bezpiecznej komunikacji
             server.login(login, password)
             server.sendmail(sender_email, receiver_email, message.as_string())
-            print("E-mail został wysłany.")
+            print("E-mail sent.")
     except Exception as e:
-        print(f"Wystąpił błąd: {e}")
+        print(f"error: {e}")
 
 # Przykład użycia funkcji
 send_email(

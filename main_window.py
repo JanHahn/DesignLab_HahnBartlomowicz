@@ -96,6 +96,7 @@ class MainWindow(QWidget):
             print(f"{info}")
             widget_window2 = ChceOdebrac(self.queue, self.queue2, info)
             widget_window2.show()
+            print("check")
 
 
 

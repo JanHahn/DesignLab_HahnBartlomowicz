@@ -117,6 +117,8 @@ class EnterEmail(QWidget):
         for row_name, keys in self.keyboard_rows.items():
             for key in keys:
                 button = QPushButton(key)
+                button.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+                button.setMinimumHeight(20)
                 self.buttons[row_name].append(button)
                 self.layouts[row_name].addWidget(button)
                 button.setStyleSheet("background-color: #162f42;"
@@ -170,10 +172,10 @@ class EnterEmail(QWidget):
         vertical_layout.addStretch(1)
         vertical_layout.addLayout(line_edit_layout)
         vertical_layout.addStretch(1)
-        vertical_layout.addLayout(self.layouts["numeric"], stretch=2)
-        vertical_layout.addLayout(self.layouts["first_row"], stretch=2)
-        vertical_layout.addLayout(self.layouts["second_row"], stretch=2)
-        vertical_layout.addLayout(self.layouts["third_row"], stretch=2)
+        vertical_layout.addLayout(self.layouts["numeric"])
+        vertical_layout.addLayout(self.layouts["first_row"])
+        vertical_layout.addLayout(self.layouts["second_row"])
+        vertical_layout.addLayout(self.layouts["third_row"])
         vertical_layout.addLayout(bottom_layout)
 
         self.setLayout(vertical_layout)

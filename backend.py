@@ -56,7 +56,7 @@ def application(request_queue: Queue, queue2):
             #TODO add communication with frontend
             if message == "is_free":
                 print("odebrano komende")
-                queue2.put("00")
+                queue2.put("01")
             if message == "command2":
                 pass
 

@@ -90,6 +90,7 @@ class MainWindow(QWidget):
     def check_queue(self):
         print("frontend sprawdza kolejke")
         if not self.queue2.empty():
+            self.timer.stop()
             print("frontend otrzymal informacje")
             info = self.queue2.get()
             widget_window2 = ChceOdebrac(self.queue, self.queue2, info)

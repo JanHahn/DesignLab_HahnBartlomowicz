@@ -118,7 +118,7 @@ class EnterEmail(QWidget):
             for key in keys:
                 button = QPushButton(key)
                 button.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-                button.setMinimumHeight(20)
+                button.setMinimumHeight(50)
                 self.buttons[row_name].append(button)
                 self.layouts[row_name].addWidget(button)
                 button.setStyleSheet("background-color: #162f42;"

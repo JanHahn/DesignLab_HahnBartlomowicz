@@ -9,12 +9,13 @@ import time
 
 
 class OpenSuccess(QWidget):
-    def __init__(self, queue):
+    def __init__(self, queue, queue2):
         super().__init__()
         self.windowWidth = 1024
         self.windowHeight = 600
 
         self.queue = queue
+        self.queue = queue2
         self.label = QLabel("Locker opened successfully!")
         self.finished_button = QPushButton("Back to main menu")
         self.init_ui()

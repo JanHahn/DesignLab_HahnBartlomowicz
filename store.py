@@ -7,11 +7,12 @@ from PyQt5.QtCore import Qt
 from enter_email import EnterEmail
 
 class ChceSchowac(QWidget):
-    def __init__(self, queue):
+    def __init__(self, queue, queue2):
         super().__init__()
 
 
         self.queue = queue
+        self.queue2 = queue2
         self.windowWidth = 1024
         self.windowHeight = 600
         self.label = QLabel("CHOOSE THE LOCKER")
@@ -92,14 +93,14 @@ class ChceSchowac(QWidget):
 
     def locker1_clicked(self):
         locker_id = "1"
-        widget1 = EnterEmail(self.queue, locker_id)
+        widget1 = EnterEmail(self.queue, locker_id, self.queue2)
         widget1.show()
         #self.widget1.resize(1024, 600)
 
     def locker2_clicked(self):
         locker_id = "2"
-        widget2 = EnterEmail(self.queue, locker_id)
-        self.widget2.show()
+        widget2 = EnterEmail(self.queue, locker_id  , self.queue2)
+        widget2.show()
         #self.widget2.resize(1024, 600)
 
 

@@ -9,12 +9,12 @@ import time
 
 
 class LockSuccess(QWidget):
-    def __init__(self, queue):
+    def __init__(self):
         super().__init__()
         self.windowWidth = 1024
         self.windowHeight = 600
 
-        self.queue = queue
+        #self.queue = queue
         self.QTimer = QTimer()
         self.label = QLabel("Locker locked successfully!")
         self.finished_button = QPushButton("Back to main menu")

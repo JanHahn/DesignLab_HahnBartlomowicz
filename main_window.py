@@ -9,10 +9,11 @@ from store import ChceSchowac
 
 
 class MainWindow(QWidget):
-    def __init__(self, queue):
+    def __init__(self, queue, queue2):
         super().__init__()
 
         self.queue = queue
+        self.queue2 = queue2
         self.windowWidth = 1024
         self.windowHeight = 600
         self.greeting_label = QLabel("WELCOME TO THE LOCKER")
@@ -20,8 +21,8 @@ class MainWindow(QWidget):
         self.store_button = QPushButton("STORE")
         self.setWindowTitle("Main Menu")
 
-        self.widget_window1 = ChceSchowac(self.queue)
-        self.widget_window2 = ChceOdebrac(self.queue)
+        self.widget_window1 = ChceSchowac(self.queue, self.queue2)
+        self.widget_window2 = ChceOdebrac(self.queue, self.queue2)
 
 
         self.initUI()

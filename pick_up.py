@@ -7,10 +7,11 @@ from PyQt5.QtCore import Qt
 from enter_code import EnterCode
 
 class ChceOdebrac(QWidget):
-    def __init__(self, queue):
+    def __init__(self, queue, queue2):
         super().__init__()
 
         self.queue = queue
+        self.queue2 = queue2
         #self.central_widget = QWidget(self)
         self.windowWidth = 1024
         self.windowHeight = 600
@@ -19,8 +20,8 @@ class ChceOdebrac(QWidget):
         self.locker2_button = QPushButton("LOCKER 2")
         self.back_button = QPushButton("BACK")
 
-        self.widget1 = EnterCode(self.queue)
-        self.widget2 = EnterCode(self.queue)
+        self.widget1 = EnterCode(self.queue, self.queue2)
+        self.widget2 = EnterCode(self.queue, self.queue2)
 
         self.init_ui()
         self.layout_managment()

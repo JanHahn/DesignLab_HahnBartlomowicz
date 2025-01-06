@@ -8,10 +8,11 @@ def main():
 
     app = QApplication(sys.argv)
     q = Queue()
-    backend = Process(target=application, args=(q,))
+    q2 = Queue()
+    backend = Process(target=application, args=(q, q2))
     backend.start()
     # Tworzymy i pokazujemy główne menu
-    main_menu = MainWindow(q)
+    main_menu = MainWindow(q, q2)
     main_menu.show()
 
     sys.exit(app.exec_())

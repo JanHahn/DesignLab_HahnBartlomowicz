@@ -8,11 +8,12 @@ from PyQt5.QtCore import Qt
 from email_confirmation import EmailConfirmation
 
 class EnterEmail(QWidget):
-    def __init__(self, queue, locker_id):
+    def __init__(self, queue, locker_id, queue2):
         super().__init__()
 
         self.locker_id = locker_id
         self.queue = queue
+        self.queue2 = queue2
         self.window_width = 1024
         self.window_height = 600
         # Creating label, line edit and buttons needed
@@ -186,7 +187,7 @@ class EnterEmail(QWidget):
             users_email = users_input
             backend_info = self.locker_id + users_email
 
-        self.widget = EmailConfirmation(users_email, self.queue, backend_info)
+        self.widget = EmailConfirmation(users_email, self.queue, backend_info, self.queue2)
         self.widget.show()
         #self.widget.resize(1024, 600)
         self.line_edit.clear()

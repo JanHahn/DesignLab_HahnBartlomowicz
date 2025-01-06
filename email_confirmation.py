@@ -10,16 +10,17 @@ from locked_successfully import LockSuccess
 
 
 class EmailConfirmation(QWidget):
-    def __init__(self, email, queue, backend_info):
+    def __init__(self, email, queue, backend_info, queue2):
         super().__init__()
 
         self.backend_info = backend_info
         self.queue = queue
+        self.queue2 = queue
         #self.showFullScreen()
         self.windowWidth = 1024
         self.windowHeight = 600
         self.email = email
-        self.widget = LockSuccess(self.queue)
+        self.widget = LockSuccess()
         self.showFullScreen()
 
 

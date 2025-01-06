@@ -22,8 +22,9 @@ class MainWindow(QWidget):
         self.store_button = QPushButton("STORE")
         self.setWindowTitle("Main Menu")
 
-        self.timer = QTimer()
-        self.openxd = LockSuccess()
+        self.timer1 = QTimer()
+        self.timer2 = QTimer()
+
         self.initUI()
         self.layout_managment()
         self.scaling_buttons()
@@ -75,23 +76,37 @@ class MainWindow(QWidget):
 
     def button_store_clicked(self):
         self.queue.put("is_free")
-        self.timer.timeout.connect(self.show_store)
-        self.timer.start(100)  # Sprawdzaj kolejkę co 100 ms
+        self.timer1.timeout.connect(self.show_store)
+        self.timer1.start(100)  # Sprawdzaj kolejkę co 100 ms
 
     def button_pickup_clicked(self):
         self.queue.put("is_free")
-        self.timer.timeout.connect(self.show_pick_up)
-        self.timer.start(100)  # Sprawdzaj kolejkę co 100 ms
+        self.timer2.timeout.connect(self.show_pick_up)
+        self.timer2.start(100)  # Sprawdzaj kolejkę co 100 ms
 
 
     def connecting_buttons(self):
         self.pick_up_button.clicked.connect(self.button_pickup_clicked)
         self.store_button.clicked.connect(self.button_store_clicked)
 
+
+    def show_store(self):
+        print("frontend sprawdza kolejke")
+        if not self.queue2.empty():
+            self.timer1.stop()
+            print("frontend otrzymal informacje")
+            info = self.queue2.get()
+
+            print(f"{info}")
+            self.widget_store = ChceSchowac(self.queue, self.queue2, info)
+            self.widget_store.show()
+            print("check")
+
+
     def show_pick_up(self):
         print("frontend sprawdza kolejke")
         if not self.queue2.empty():
-            self.timer.stop()
+            self.timer2.stop()
             print("frontend otrzymal informacje")
             info = self.queue2.get()
 
@@ -100,17 +115,6 @@ class MainWindow(QWidget):
             self.widget_pickup.show()
             print("check")
 
-    def show_store(self):
-        print("frontend sprawdza kolejke")
-        if not self.queue2.empty():
-            self.timer.stop()
-            print("frontend otrzymal informacje")
-            info = self.queue2.get()
-
-            print(f"{info}")
-            self.widget_store = ChceSchowac(self.queue, self.queue2, info)
-            self.widget_store.show()
-            print("check")
 
 
 

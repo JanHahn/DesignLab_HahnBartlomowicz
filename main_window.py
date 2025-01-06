@@ -13,7 +13,7 @@ class MainWindow(QWidget):
         super().__init__()
 
         self.queue = queue
-        self.showFullScreen()
+        #self.showFullScreen()
         self.windowWidth = 1024
         self.windowHeight = 600
         self.greeting_label = QLabel("WELCOME TO THE LOCKER")

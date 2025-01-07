@@ -25,6 +25,10 @@ def set_gpio():
     GPIO.output(LOCK1_OUTPUT, GPIO.LOW)
     print(f"Pin {LOCK1_OUTPUT} ustawiony na niski stan.")
 
+    GPIO.setup(LOCK2_OUTPUT, GPIO.OUT)
+    GPIO.output(LOCK2_OUTPUT, GPIO.LOW)
+    print(f"Pin {LOCK1_OUTPUT} ustawiony na niski stan.")
+
     GPIO.setup(REED_SWITCH1_INPUT, GPIO.IN)
     print(f"Pin {REED_SWITCH1_INPUT} ustawiono jako wejscie")
 

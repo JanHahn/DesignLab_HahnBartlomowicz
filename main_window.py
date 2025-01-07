@@ -114,6 +114,8 @@ class MainWindow(QWidget):
             self.widget_pickup = ChceOdebrac(self.queue, self.queue2, info)
             self.widget_pickup.show()
             print("check")
+        else:
+            print("Kolejka jest pusta ")
 
 
 

@@ -165,7 +165,7 @@ class EnterCode(QWidget):
         user_input = self.line_edit.text()
         #self.queue.put("code_verification")
         #self.queue.put("2" + user_input)
-        with open(self.file_path, 'r') as locker_file:
+        with open("codes.txt", 'r') as locker_file:
             text = locker_file.read()
             locker_list = text.split("\n")
             for locker_info in locker_list:

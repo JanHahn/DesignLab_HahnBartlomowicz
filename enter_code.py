@@ -170,7 +170,7 @@ class EnterCode(QWidget):
             locker_list = text.split("\n")
             for locker_info in locker_list:
                 tab = locker_info.split(':')
-                if int(tab[0]) == "2":
+                if tab[0] == "2":
                     code = tab[1]
                     if user_input == code:
                         self.locker_opened_function()

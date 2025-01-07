@@ -173,6 +173,7 @@ class EnterCode(QWidget):
                 if tab[0] == "2":
                     code = tab[1]
                     if user_input == code:
+                        self.queue.put("open")
                         self.locker_opened_function()
                     else:
                         self.wrong_code_function()

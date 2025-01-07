@@ -9,9 +9,9 @@ import RPi.GPIO as GPIO
 
 #ustaw tutaj piny na raspberry odpoweidnie
 REED_SWITCH1_INPUT = 1
-LOCK1_OUTPUT = 2
+LOCK1_OUTPUT = 4
 REED_SWITCH2_INPUT = 3
-LOCK2_OUTPUT = 4
+LOCK2_OUTPUT = 2
 FILE_PATH = "Locker_info.txt"
 FILE_PATH2 = "codes.txt"
 
@@ -63,8 +63,8 @@ def application(request_queue: Queue, queue2):
                 print("odebrano new_code")
                 info = request_queue.get() #[lockerid + email + new_code]
                 file_handler2.change_status(info[0], info[-4:])
-            if message == "code_verification":
-                info = request_queue.get()
+            if message == "open":
+                locker2.open()
 
 
 

@@ -163,26 +163,20 @@ class EnterCode(QWidget):
 
     def check_code(self):
         user_input = self.line_edit.text()
-        self.queue.put("code_verification")
-        self.queue.put("2" + user_input)
-        try:
-            with open(self.file_path, 'r') as locker_file:
-                text = locker_file.read()
-                locker_list = text.split("\n")
-                for locker_info in locker_list:
-                    tab = locker_info.split(':')
-                    if int(tab[0]) == "2":
-                        code = tab[1]
+        #self.queue.put("code_verification")
+        #self.queue.put("2" + user_input)
+        with open(self.file_path, 'r') as locker_file:
+            text = locker_file.read()
+            locker_list = text.split("\n")
+            for locker_info in locker_list:
+                tab = locker_info.split(':')
+                if int(tab[0]) == "2":
+                    code = tab[1]
+                    if user_input == code:
+                        self.locker_opened_function()
+                    else:
+                        self.wrong_code_function()
 
-        except FileNotFoundError:
-            print(f"File '{self.file_path}' does not exist.")
-        except Exception as e:
-            print(f"Error occured: {e}")
-
-        if user_input == code:
-            self.locker_opened_function()
-        else:
-            self.wrong_code_function()
 
     def wrong_code_function(self):
         self.line_edit.clear()

@@ -25,14 +25,14 @@ def send_email(sender_email, receiver_email, subject, body, smtp_server, port, l
     except Exception as e:
         print(f"error: {e}")
 
-# Przykład użycia funkcji
-send_email(
-    sender_email='designlab.locker@gmail.com',
-    receiver_email='tomasz.bartlomowicz18@gmail.com',
-    subject='Design Lab Locker',
-    body=f'Hello, your unlock code is {random.randint(1000, 9999)} ',
-    smtp_server='smtp.gmail.com',  # Adres serwera SMTP (np. dla Gmail: 'smtp.gmail.com')
-    port=587,  # Port SMTP (np. dla Gmail: 587)
-    login='designlab.locker@gmail.com',
-    password='ddfg hdzm ombs faof'
-)
+# # Przykład użycia funkcji
+# send_email(
+#     sender_email='designlab.locker@gmail.com',
+#     receiver_email='tomasz.bartlomowicz18@gmail.com',
+#     subject='Design Lab Locker',
+#     body=f'Hello, your unlock code is {random.randint(1000, 9999)} ',
+#     smtp_server='smtp.gmail.com',  # Adres serwera SMTP (np. dla Gmail: 'smtp.gmail.com')
+#     port=587,  # Port SMTP (np. dla Gmail: 587)
+#     login='designlab.locker@gmail.com',
+#     password='ddfg hdzm ombs faof'
+# )

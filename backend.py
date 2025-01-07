@@ -45,17 +45,17 @@ def application(request_queue: Queue, queue2):
     while True:
         #TODO add delay to opening while entering e-mail
         #section that opens lockers after OPEN_TIMING variable if no one enter e-mail
-        if locker1.status == 1 and locker1.is_opened() == 0:
-            locker1_time = time.time() - locker1_start_time
-            if locker1_time < OPEN_TIMING:
-                locker1.open()
-                locker1_start_time = 0
-
-        if locker2.status == 1 and locker2.is_opened() == 0:
-            locker2_time = time.time() - locker2_start_time
-            if locker2_time < OPEN_TIMING:
-                locker2.open()
-                locker2_start_time = 0
+        # if locker1.status == 1 and locker1.is_opened() == 0:
+        #     locker1_time = time.time() - locker1_start_time
+        #     if locker1_time < OPEN_TIMING:
+        #         locker1.open()
+        #         locker1_start_time = 0
+        #
+        # if locker2.status == 1 and locker2.is_opened() == 0:
+        #     locker2_time = time.time() - locker2_start_time
+        #     if locker2_time < OPEN_TIMING:
+        #         locker2.open()
+        #         locker2_start_time = 0
 
         if not request_queue.empty():
             message = request_queue.get()

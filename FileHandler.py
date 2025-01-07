@@ -21,7 +21,24 @@ class FileHandler:
         except Exception as e:
             print(f"Error occured: {e}")
 
-    #TODO finish replacing file
-    def change_status(self, locker):
-        with open(self.file_path, 'a') as locker_file:
-            text = locker_file.read()
+    def change_status(self, locker, info):
+        # Read the current contents of the file
+        with open(self.file_path, 'r') as locker_file:
+            lines = locker_file.readlines()
+
+        # Check if the locker ID already exists, and update its info if it does
+        updated = False
+        for i, line in enumerate(lines):
+            locker_id, _ = line.strip().split(":")
+            if int(locker_id) == locker:
+                lines[i] = f"{locker}:{info}\n"
+                updated = True
+                break
+
+        # If the locker ID does not exist, append the new info
+        if not updated:
+            lines.append(f"{locker}:{info}\n")
+
+        # Write the updated content back to the file
+        with open(self.file_path, 'w') as locker_file:
+            locker_file.writelines(lines)

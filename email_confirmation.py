@@ -107,16 +107,21 @@ class EmailConfirmation(QWidget):
         self.queue.put(self.backend_info)
         self.widget.showFullScreen()
         #self.widget.resize(1024, 600)
+        new_code = random.randint(1000, 9999)
+
         send_email(
             sender_email='designlab.locker@gmail.com',
             receiver_email=self.email,
             subject='Design Lab Locker',
-            body=f'Hello, your unlock code is {random.randint(1000, 9999)} ',
+            body=f'Hello, your unlock code is {new_code} ',
             smtp_server='smtp.gmail.com',  # Adres serwera SMTP (np. dla Gmail: 'smtp.gmail.com')
             port=587,  # Port SMTP (np. dla Gmail: 587)
             login='designlab.locker@gmail.com',
             password='ddfg hdzm ombs faof'
         )
+
+        self.queue.put("new_code")
+        self.queue.put(self.backend_info + str(new_code))  #[lockerid + email + new_code]
 
 
     def back_clicked(self):

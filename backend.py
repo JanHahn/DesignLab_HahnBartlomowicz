@@ -13,6 +13,7 @@ LOCK1_OUTPUT = 2
 REED_SWITCH2_INPUT = 3
 LOCK2_OUTPUT = 4
 FILE_PATH = "Locker_info.txt"
+FILE_PATH2 = "codes.txt"
 
 OPEN_TIMING = 15 #time after locker will open again after closing (in seconds)
 
@@ -31,6 +32,7 @@ def set_gpio():
 def application(request_queue: Queue, queue2):
     set_gpio()
     file_handler = FileHandler(FILE_PATH)
+    file_handler2 = FileHandler(FILE_PATH2)
     locker1 = Locker(1, LOCK1_OUTPUT, REED_SWITCH1_INPUT)
     locker2 = Locker(2, LOCK2_OUTPUT, REED_SWITCH2_INPUT)
     locker1_start_time = 0
@@ -55,10 +57,16 @@ def application(request_queue: Queue, queue2):
             message = request_queue.get()
             #TODO add communication with frontend
             if message == "is_free":
-                print("odebrano komende")
+                print("odebrano komende: is_free")
                 queue2.put("01")
-            if message == "command2":
-                pass
+            if message == "new_code":
+                print("odebrano new_code")
+                info = request_queue.get() #[lockerid + email + new_code]
+                file_handler2.change_status(info[0], info[-4:])
+            if message == "code_verification":
+                info = request_queue.get()
+
+
 
 
 

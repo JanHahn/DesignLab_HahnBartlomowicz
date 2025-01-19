@@ -16,8 +16,8 @@ class Locker:
         GPIO.output(self.locker_pin, GPIO.LOW)
         self.status = 1
 
-    def is_opened(self):
-        if GPIO.input(self.reed_switch): #returns True if HIGH
-            return 1 #TODO set good value
-        else:
-            return 0
+    # def is_opened(self):
+    #     if GPIO.input(self.reed_switch): #returns True if HIGH
+    #         return 1 #TODO set good value
+    #     else:
+    #         return 0

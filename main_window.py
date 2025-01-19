@@ -82,7 +82,7 @@ class MainWindow(QWidget):
 
     def button_pickup_clicked(self):
         self.queue.put("is_free")
-        self.timer1.setInterval(100)
+        self.timer2.setInterval(100)
         self.timer2.timeout.connect(self.show_pick_up)
         self.timer2.start(100)  # Sprawdzaj kolejkę co 100 ms
 
@@ -102,7 +102,6 @@ class MainWindow(QWidget):
             print(f"{info}")
             self.widget_store = ChceSchowac(self.queue, self.queue2, info)
             self.widget_store.show()
-            print("check")
 
 
     def show_pick_up(self):
@@ -115,7 +114,6 @@ class MainWindow(QWidget):
             print(f"{info}")
             self.widget_pickup = ChceOdebrac(self.queue, self.queue2, info)
             self.widget_pickup.show()
-            print("check")
         else:
             print("Kolejka jest pusta ")
 

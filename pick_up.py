@@ -29,6 +29,7 @@ class ChceOdebrac(QWidget):
         self.scaling_buttons()
         self.return_button()
         self.connecting_buttons()
+        self.disabling_buttons()
 
     def init_ui(self):
         self.setStyleSheet("background-color: #2d2d2d;")

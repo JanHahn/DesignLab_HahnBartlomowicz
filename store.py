@@ -43,15 +43,25 @@ class ChceSchowac(QWidget):
         self.label.setAlignment(Qt.AlignCenter)
 
         # Styling buttons
-        self.locker1_button.setStyleSheet("color: #f4f3f0;"
-                                               "font-size: 33px;"
-                                               "font-weight: bold;"
-                                               "background-color: #6A1B1B;")
+        self.locker1_button.setStyleSheet("""
+            color: #f4f3f0;
+            font-size: 33px;
+            font-weight: bold;
+            background-color: #6A1B1B;
+            QPushButton:disabled {
+                background-color: #878282;
+            }
+        """)
 
-        self.locker2_button.setStyleSheet("color: #f4f3f0;"
-                                               "font-size: 33px;"
-                                               "font-weight: bold;"
-                                               "background-color: #6A1B1B;")
+        self.locker2_button.setStyleSheet("""
+            color: #f4f3f0;
+            font-size: 33px;
+            font-weight: bold;
+            background-color: #6A1B1B;
+            QPushButton:disabled {
+                background-color: #878282;
+            }
+        """)
 
         self.back_button.setGeometry(650, 340, 140, 50)
         self.back_button.setStyleSheet("font-size: 25px;"

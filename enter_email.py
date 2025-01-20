@@ -190,10 +190,10 @@ class EnterEmail(QWidget):
             users_email = users_input
             backend_info = self.locker_id + users_email
 
-        self.widget = EmailConfirmation(users_email, self.queue, backend_info, self.queue2)
-        self.widget.show()
-        #self.widget.resize(1024, 600)
-        self.line_edit.clear()
+            self.widget = EmailConfirmation(users_email, self.queue, backend_info, self.queue2)
+            self.widget.show()
+            #self.widget.resize(1024, 600)
+            self.line_edit.clear()
 
     def connect_confirm_button(self):
         self.confirm_button.clicked.connect(self.confirm_button_clicked)

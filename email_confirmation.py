@@ -104,7 +104,7 @@ class EmailConfirmation(QWidget):
         self.return_button.clicked.connect(self.back_clicked)
 
     def lock_clicked(self):
-        self.queue.put(self.backend_info)
+        #self.queue.put(self.backend_info)
         self.widget.showFullScreen()
         #self.widget.resize(1024, 600)
         new_code = random.randint(1000, 9999)

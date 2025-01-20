@@ -62,15 +62,22 @@ def application(request_queue: Queue, queue2):
             #TODO add communication with frontend
             if message == "is_free":
                 print("odebrano komende: is_free")
-                queue2.put("01")
+                info1 = file_handler.check_status(1)
+                info2 = file_handler.check_status(2)
+                queue2.put(info1 + info2)
             if message == "new_code":
                 print("odebrano new_code")
                 info = request_queue.get() #[lockerid + email + new_code]
                 file_handler2.change_status(info[0], info[-4:])
-            if message == "open":
+                file_handler.change_status(int(info[0]), 0)
+            if message[:4] == "open":
                 print("otworz szafke")
-                locker2.open()
-
+                if message[4] == "1":
+                    locker1.open()
+                    file_handler.change_status(1, 0)
+                if message[4] == "2":
+                    locker2.open()
+                    file_handler.change_status(2, 0)
 
 
 

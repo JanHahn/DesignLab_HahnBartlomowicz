@@ -21,8 +21,8 @@ class ChceOdebrac(QWidget):
         self.locker2_button = QPushButton("LOCKER 2")
         self.back_button = QPushButton("BACK")
 
-        self.widget1 = EnterCode(self.queue, self.queue2)
-        self.widget2 = EnterCode(self.queue, self.queue2)
+        self.widget1 = EnterCode(self.queue, self.queue2, "1")
+        self.widget2 = EnterCode(self.queue, self.queue2, "2")
 
         self.init_ui()
         self.layout_managment()
@@ -52,7 +52,7 @@ class ChceOdebrac(QWidget):
                     }
                     QPushButton:disabled {
                         color: #f4f3f0;
-                        background-color: #3a4391;
+                        background-color: #878282;
                     }
                 """)
 
@@ -65,7 +65,7 @@ class ChceOdebrac(QWidget):
                     }
                     QPushButton:disabled {
                         color: #f4f3f0;
-                        background-color: #3a4391;
+                        background-color: #878282;
                     }
                 """)
 
@@ -110,7 +110,7 @@ class ChceOdebrac(QWidget):
         self.back_button.clicked.connect(self.close)
 
     def skrytka1_clicked(self):
-        self.widget1.show()
+        self.widget1().show()
         #self.widget1.resize(1024, 600)
 
 

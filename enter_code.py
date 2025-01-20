@@ -9,7 +9,7 @@ from opened_successfully import OpenSuccess
 
 
 class EnterCode(QWidget):
-    def __init__(self, queue, queue2):
+    def __init__(self, queue, queue2, locker_id):
         super().__init__()
 
         self.windowWidth = 1024
@@ -17,6 +17,8 @@ class EnterCode(QWidget):
         #self.showFullScreen()
         self.queue = queue
         self.queue2 = queue2
+        self.locker_id = locker_id
+
         self.label = QLabel("ENTER THE UNLOCK CODE", self)
         self.line_edit = QLineEdit(self)
 
@@ -170,10 +172,10 @@ class EnterCode(QWidget):
             locker_list = text.split("\n")
             for locker_info in locker_list:
                 tab = locker_info.split(':')
-                if tab[0] == "2":
+                if tab[0] == self.locker_id:
                     code = tab[1]
                     if user_input == code:
-                        self.queue.put("open")
+                        self.queue.put("open" + self.locker_id)
                         self.locker_opened_function()
                     else:
                         self.wrong_code_function()

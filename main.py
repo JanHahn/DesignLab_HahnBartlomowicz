@@ -13,7 +13,7 @@ def main():
     backend.start()
     # Tworzymy i pokazujemy główne menu
     main_menu = MainWindow(q, q2)
-    main_menu.show()
+    main_menu.showFullScreen()
 
     sys.exit(app.exec_())
 

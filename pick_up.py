@@ -126,6 +126,6 @@ class ChceOdebrac(QWidget):
     def disabling_buttons(self):
         print(self.lockers_status[0])
         print(self.lockers_status[1])
-        self.locker1_button.setDisabled(int(self.lockers_status[0]))
-        self.locker2_button.setDisabled(int(self.lockers_status[1]))
+        self.locker1_button.setDisabled(not int(self.lockers_status[0]))
+        self.locker2_button.setDisabled(not int(self.lockers_status[1]))
 

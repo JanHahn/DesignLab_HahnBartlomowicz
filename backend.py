@@ -69,7 +69,7 @@ def application(request_queue: Queue, queue2):
                 print("odebrano new_code")
                 info = request_queue.get() #[lockerid + email + new_code]
                 file_handler2.change_status(info[0], info[-4:])
-                file_handler.change_status(int(info[0]), 0)
+                file_handler.change_status(int(info[0]), 1)
             if message[:4] == "open":
                 print("otworz szafke")
                 if message[4] == "1":

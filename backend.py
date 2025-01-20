@@ -62,8 +62,8 @@ def application(request_queue: Queue, queue2):
             #TODO add communication with frontend
             if message == "is_free":
                 print("odebrano komende: is_free")
-                info1 = file_handler.check_status(1)
-                info2 = file_handler.check_status(2)
+                info1 = file_handler.check_status(locker1)
+                info2 = file_handler.check_status(locker2)
                 queue2.put(info1 + info2)
             if message == "new_code":
                 print("odebrano new_code")

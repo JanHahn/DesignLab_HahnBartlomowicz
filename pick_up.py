@@ -124,6 +124,6 @@ class ChceOdebrac(QWidget):
         self.locker2_button.clicked.connect(self.skrytka2_clicked)
 
     def disabling_buttons(self):
-        self.locker1_button.setDisabled(bool(not(self.lockers_status[0])))
-        self.locker2_button.setDisabled(bool(not(self.lockers_status[1])))
+        self.locker1_button.setDisabled(bool(self.lockers_status[0]))
+        self.locker2_button.setDisabled(bool(self.lockers_status[1]))
 

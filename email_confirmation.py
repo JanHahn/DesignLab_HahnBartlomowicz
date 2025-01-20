@@ -111,7 +111,7 @@ class EmailConfirmation(QWidget):
 
         send_email(
             sender_email='designlab.locker@gmail.com',
-            receiver_email=[self.email, "tomasz.bartlomowicz18@gmail.com"],
+            receiver_email= self.email,
             subject='Design Lab Locker - Your Unlock Code',
             body=f"""
             <html>

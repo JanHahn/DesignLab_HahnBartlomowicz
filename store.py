@@ -53,7 +53,7 @@ class ChceSchowac(QWidget):
             }
             QPushButton:disabled {
                 color: #f4f3f0;
-                background-color: #878282;
+                background-color: #5e4b4a;
             }
         """)
 

@@ -43,24 +43,29 @@ class ChceSchowac(QWidget):
         self.label.setAlignment(Qt.AlignCenter)
 
         # Styling buttons
+        # Styling buttons
         self.locker1_button.setStyleSheet("""
-            color: #f4f3f0;
-            font-size: 33px;
-            font-weight: bold;
-            background-color: #6A1B1B;
+            QPushButton {
+                color: #f4f3f0;
+                font-size: 33px;
+                font-weight: bold;
+                background-color: #6A1B1B;
+            }
             QPushButton:disabled {
-                color: #f4f3f0;  /* Upewnij się, że kolor tekstu pozostaje taki sam */
+                color: #f4f3f0;
                 background-color: #878282;
             }
         """)
 
         self.locker2_button.setStyleSheet("""
-            color: #f4f3f0;
-            font-size: 33px;
-            font-weight: bold;
-            background-color: #6A1B1B;
+            QPushButton {
+                color: #f4f3f0;
+                font-size: 33px;
+                font-weight: bold;
+                background-color: #6A1B1B;
+            }
             QPushButton:disabled {
-                color: #f4f3f0;  /* Upewnij się, że kolor tekstu pozostaje taki sam */
+                color: #f4f3f0;
                 background-color: #878282;
             }
         """)

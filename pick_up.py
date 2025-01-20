@@ -127,7 +127,3 @@ class ChceOdebrac(QWidget):
         self.locker1_button.setDisabled(bool(not(self.lockers_status[0])))
         self.locker2_button.setDisabled(bool(not(self.lockers_status[1])))
 
-#TODO
-    def disabling_buttons(self):
-        self.queue.put("is_free")
-

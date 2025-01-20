@@ -131,12 +131,3 @@ class ChceSchowac(QWidget):
         self.locker1_button.setDisabled(bool(self.lockers_status[0]))
         self.locker2_button.setDisabled(bool(self.lockers_status[1]))
 
-# def main():
-#     app = QApplication(sys.argv)
-#     window = ChceSchowac()
-#     window.show()
-#     sys.exit(app.exec_())
-#
-#
-# if __name__ == "__main__":
-#     main()

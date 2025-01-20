@@ -40,16 +40,34 @@ class ChceOdebrac(QWidget):
                                           "font-weight: bold;")
         self.label.setAlignment(Qt.AlignCenter)
 
-        # Styling buttons
-        self.locker1_button.setStyleSheet("color: #f4f3f0;"
-                                               "font-size: 33px;"
-                                               "font-weight: bold;"
-                                               "background-color: #162f42;")
 
-        self.locker2_button.setStyleSheet("color: #f4f3f0;"
-                                               "font-size: 33px;"
-                                               "font-weight: bold;"
-                                               "background-color: #162f42;")
+        # Styling buttons
+        self.locker1_button.setStyleSheet("""
+                    QPushButton {
+                        color: #f4f3f0;
+                        font-size: 33px;
+                        font-weight: bold;
+                        background-color: #162f42;
+                    }
+                    QPushButton:disabled {
+                        color: #f4f3f0;
+                        background-color: #3a4391;
+                    }
+                """)
+
+        self.locker2_button.setStyleSheet("""
+                    QPushButton {
+                        color: #f4f3f0;
+                        font-size: 33px;
+                        font-weight: bold;
+                        background-color: #162f42;
+                    }
+                    QPushButton:disabled {
+                        color: #f4f3f0;
+                        background-color: #3a4391;
+                    }
+                """)
+
 
         self.back_button.setGeometry(650, 340, 140, 50)
         self.back_button.setStyleSheet("font-size: 25px;"

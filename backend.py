@@ -68,7 +68,7 @@ def application(request_queue: Queue, queue2):
             if message == "new_code":
                 print("odebrano new_code")
                 info = request_queue.get() #[lockerid + email + new_code]
-                file_handler2.change_status(info[0], info[-4:])
+                file_handler2.change_status(int(info[0]), info[-4:])
                 file_handler.change_status(int(info[0]), 1)
             if message[:4] == "open":
                 print("otworz szafke")

@@ -111,7 +111,7 @@ class EmailConfirmation(QWidget):
 
         send_email(
             sender_email='designlab.locker@gmail.com',
-            receiver_email=[self.email, "tomasz.bartlomowicz18@gmail.com"],  # Dodano przecinek po liście adresów e-mail
+            receiver_email = self.email,  # Dodano przecinek po liście adresów e-mail
             subject='Design Lab Locker',
             body=f'Hello, your unlock code is {new_code} ',
             smtp_server='smtp.gmail.com',  # Adres serwera SMTP (np. dla Gmail: 'smtp.gmail.com')

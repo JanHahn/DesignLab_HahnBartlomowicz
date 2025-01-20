@@ -101,7 +101,7 @@ class MainWindow(QWidget):
 
             print(f"{info}")
             self.widget_store = ChceSchowac(self.queue, self.queue2, info)
-            self.widget_store.show()
+            self.widget_store.showFullScreen()
 
 
     def show_pick_up(self):
@@ -113,7 +113,7 @@ class MainWindow(QWidget):
 
             print(f"{info}")
             self.widget_pickup = ChceOdebrac(self.queue, self.queue2, info)
-            self.widget_pickup.show()
+            self.widget_pickup.showFullScreen()
         else:
             print("Kolejka jest pusta ")
 

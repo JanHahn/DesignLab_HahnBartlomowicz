@@ -128,8 +128,8 @@ class ChceSchowac(QWidget):
 
 
     def disabling_buttons(self):
-        self.locker1_button.setDisabled(True)
-        self.locker2_button.setDisabled(False)
+        self.locker1_button.setDisabled(bool(self.lockers_status[0]))
+        self.locker2_button.setDisabled(bool(self.lockers_status[1]))
 
 # def main():
 #     app = QApplication(sys.argv)

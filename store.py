@@ -49,6 +49,7 @@ class ChceSchowac(QWidget):
             font-weight: bold;
             background-color: #6A1B1B;
             QPushButton:disabled {
+                color: #f4f3f0;  /* Upewnij się, że kolor tekstu pozostaje taki sam */
                 background-color: #878282;
             }
         """)
@@ -59,6 +60,7 @@ class ChceSchowac(QWidget):
             font-weight: bold;
             background-color: #6A1B1B;
             QPushButton:disabled {
+                color: #f4f3f0;  /* Upewnij się, że kolor tekstu pozostaje taki sam */
                 background-color: #878282;
             }
         """)

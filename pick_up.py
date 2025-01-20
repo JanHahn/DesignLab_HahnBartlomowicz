@@ -110,7 +110,7 @@ class ChceOdebrac(QWidget):
         self.back_button.clicked.connect(self.close)
 
     def skrytka1_clicked(self):
-        self.widget1().show()
+        self.widget1.show()
         #self.widget1.resize(1024, 600)
 
 

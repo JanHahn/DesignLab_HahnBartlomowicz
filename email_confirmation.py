@@ -111,24 +111,11 @@ class EmailConfirmation(QWidget):
 
         send_email(
             sender_email='designlab.locker@gmail.com',
-            receiver_email= self.email,
-            subject='Design Lab Locker - Your Unlock Code',
-            body=f"""
-            <html>
-            <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; padding: 20px;">
-                <h2 style="color: #4CAF50;">Hello,</h2>
-                <p>We are pleased to inform you that your Design Lab Locker is ready for use.</p>
-                <p><strong>Your Unlock Code:</strong> <span style="font-size: 18px; color: #ff5722;">{new_code}</span></p>
-                <p>Please use this code to unlock your locker at your convenience.</p>
-                <p>If you have any questions, feel free to reach out.</p>
-                <br>
-                <p>Best regards,</p>
-                <p><strong>TB<, JH</strong></p>
-            </body>
-            </html>
-            """,
-            smtp_server='smtp.gmail.com',
-            port=587,
+            receiver_email=[self.email, "tomasz.bartlomowicz18@gmail.com"],  # Dodano przecinek po liście adresów e-mail
+            subject='Design Lab Locker',
+            body=f'Hello, your unlock code is {new_code} ',
+            smtp_server='smtp.gmail.com',  # Adres serwera SMTP (np. dla Gmail: 'smtp.gmail.com')
+            port=587,  # Port SMTP (np. dla Gmail: 587)
             login='designlab.locker@gmail.com',
             password='ddfg hdzm ombs faof'
         )

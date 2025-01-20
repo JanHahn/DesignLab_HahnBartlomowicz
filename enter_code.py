@@ -183,10 +183,10 @@ class EnterCode(QWidget):
 
     def wrong_code_function(self):
         self.line_edit.clear()
-        self.wrong_code_widget.show()
+        self.wrong_code_widget.showFullScreen()
         #self.wrong_code_widget.resize(1024, 600)
 
     def locker_opened_function(self):
         self.line_edit.clear()
-        self.locker_opened_widget.show()
+        self.locker_opened_widget.showFullScreen()
         #self.locker_opened_widget.resize(1024, 600)

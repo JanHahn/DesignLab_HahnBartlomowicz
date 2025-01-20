@@ -191,7 +191,7 @@ class EnterEmail(QWidget):
             backend_info = self.locker_id + users_email
 
             self.widget = EmailConfirmation(users_email, self.queue, backend_info, self.queue2)
-            self.widget.show()
+            self.widget.showFullScreen()
             #self.widget.resize(1024, 600)
             self.line_edit.clear()
 

@@ -112,13 +112,13 @@ class ChceSchowac(QWidget):
     def locker1_clicked(self):
         locker_id = "1"
         widget1 = EnterEmail(self.queue, locker_id, self.queue2)
-        widget1.show()
+        widget1.showFullScreen()
         #self.widget1.resize(1024, 600)
 
     def locker2_clicked(self):
         locker_id = "2"
         widget2 = EnterEmail(self.queue, locker_id  , self.queue2)
-        widget2.show()
+        widget2.showFullScreen()
         #self.widget2.resize(1024, 600)
 
 

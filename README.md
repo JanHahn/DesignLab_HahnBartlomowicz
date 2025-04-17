@@ -2,6 +2,10 @@
 
 A smart locker system designed for secure item storage and retrieval, combining Python software with hardware components such as electromagnetic locks and sensors — all managed by a Raspberry Pi.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/391d4a2c-2081-484e-8d96-f2a9102ba023" width="400"/>
+</p>
+
 ## 📅 Project Info
 
 **Authors:** Tomasz Bartłomowicz, Jan Hahn  
